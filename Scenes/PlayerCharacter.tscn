@@ -1,7 +1,56 @@
 [gd_scene format=3 uid="uid://ducrjhp71a7sn"]
 
 [ext_resource type="Script" uid="uid://dv5v1rv06hu32" path="res://scripts/Movement.gd" id="1_5gnj7"]
-[ext_resource type="Texture2D" uid="uid://jgi2xjcp7uka" path="res://Assets/MainFig-1.png.png" id="2_2getf"]
+[ext_resource type="Texture2D" uid="uid://cpkgc0akqpt4n" path="res://Assets/Char/MainFig-1.png.png" id="2_2getf"]
+[ext_resource type="Texture2D" uid="uid://b3tu1ceevw664" path="res://Assets/Char/MainFig.png" id="3_2getf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mdaju"]
+atlas = ExtResource("2_2getf")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_id6tp"]
+atlas = ExtResource("3_2getf")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wnmxb"]
+atlas = ExtResource("3_2getf")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k5f8r"]
+atlas = ExtResource("3_2getf")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cl0yw"]
+atlas = ExtResource("3_2getf")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vjvuw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mdaju")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_id6tp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wnmxb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k5f8r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cl0yw")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mdaju"]
 size = Vector2(20, 25)
@@ -12,9 +61,8 @@ size = Vector2(20, 25)
 position = Vector2(535, 329)
 script = ExtResource("1_5gnj7")
 
-[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=1584985925]
-position = Vector2(3, 71)
-texture = ExtResource("2_2getf")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=2055319238]
+sprite_frames = SubResource("SpriteFrames_vjvuw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=695362494]
 position = Vector2(3, 69)
