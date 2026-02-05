@@ -1,0 +1,387 @@
+ Multiple‑Choice (Single Choice)
+1. Was beschreibt Pseudocode am besten?
+
+A) Eine informelle, sprachnahe Beschreibung eines Algorithmus
+B) Eine ausführbare Programmiersprache
+C) Ein Datenbankmodell
+D) Ein UML-Diagramm
+Richtige Antwort: A
+
+2. Welche Struktur wird typischerweise für Wiederholungen im Pseudocode genutzt?
+
+A) IF
+B) WHILE
+C) CLASS
+D) IMPORT
+Richtige Antwort: B
+
+3. Welche Kontrollstruktur dient zur Entscheidung?
+
+A) LOOP
+B) RETURN
+C) METHOD
+D) IF–ELSE
+Richtige Antwort: D
+
+4. Was ist ein Objekt in der OOP?
+
+A) Eine Datei
+B) Eine Instanz einer Klasse
+C) Eine globale Variable
+D) Eine Funktion
+Richtige Antwort: B
+
+5. Welche Schleife eignet sich, wenn die Anzahl der Wiederholungen bekannt ist?
+
+A) WHILE
+B) REPEAT UNTIL
+C) FOR
+D) FOREACH
+Richtige Antwort: C
+
+6. Welche typische Schreibweise beschreibt eine Methode im Pseudocode?
+
+A) OBJECT Name
+B) PACKAGE Name
+C) LOOP Name
+D) METHOD Name(Parameter)
+Richtige Antwort: D
+
+7. Welche Datenstruktur speichert Elemente in Reihenfolge?
+
+A) Boolean
+B) Klasse
+C) Liste
+D) Methode
+Richtige Antwort: C
+
+8. Welche Schleife wird mindestens einmal ausgeführt?
+
+A) WHILE
+B) FOR
+C) REPEAT UNTIL
+D) FOREACH
+Richtige Antwort: C
+
+9. Welche Aussage beschreibt Vererbung?
+
+A) Eine Klasse übernimmt Eigenschaften einer anderen Klasse
+B) Eine Klasse kann nur eine Methode haben
+C) Vererbung existiert nicht
+D) Eine Klasse kann keine Attribute besitzen
+Richtige Antwort: A
+
+10. Was beschreibt Polymorphie?
+
+A) Objekte können unterschiedliche Implementierungen derselben Methode haben
+B) Klassen haben keine Attribute
+C) Methoden können nicht überschrieben werden
+D) Polymorphie existiert nicht
+Richtige Antwort: A
+
+Multiple‑Choice (Multiple Answers möglich)
+
+11. Welche Elemente gehören zu einer Klasse?
+
+A) Attribute
+B) Methoden
+C) Tabellen
+D) Konstruktoren
+Richtige Antworten: A, B, D
+
+12. Welche Schritte gehören typischerweise zu einem Algorithmus?
+
+A) Eingabe
+B) Verarbeitung
+C) Ausgabe
+D) Kompilierung
+Richtige Antworten: A, B, C
+
+13. Welche Eigenschaften hat guter Pseudocode?
+
+A) Klar
+B) Verständlich
+C) Sprachabhängig
+D) Streng syntaktisch
+Richtige Antworten: A, B
+
+14. Welche OOP‑Konzepte gehören zu den „vier Grundpfeilern“?
+
+A) Vererbung
+B) Polymorphie
+C) Kapselung
+D) Wiederholung
+Richtige Antworten: A, B, C
+
+15. Welche Strukturen sind Kontrollstrukturen?
+
+A) IF
+B) WHILE
+C) CLASS
+D) FOR
+Richtige Antworten: A, B, D
+
+Wahr/Falsch
+
+16. Pseudocode muss sich an die Syntax einer Programmiersprache halten.
+❌ Falsch
+
+17. Ein Algorithmus muss endlich sein.
+✔️ Wahr
+
+18. Ein Konstruktor initialisiert ein Objekt.
+✔️ Wahr
+
+19. Ein Algorithmus muss immer deterministisch sein.
+❌ Falsch
+
+20. Eine Klasse kann Methoden und Attribute enthalten.
+✔️ Wahr
+
+21. Polymorphie bedeutet, dass eine Klasse keine Attribute besitzt.
+❌ Falsch
+
+22. WHILE-Schleifen werden immer mindestens einmal ausgeführt.
+❌ Falsch
+
+23. Objekte entstehen aus Klassen.
+✔️ Wahr
+
+24. Pseudocode ist immer ausführbar.
+❌ Falsch
+
+25. Eine Liste kann mehrere Elemente enthalten.
+✔️ Wahr
+
+Lückentext (mit Auswahlmöglichkeiten)
+
+26. Ein Algorithmus besteht aus ____, Verarbeitung und Ausgabe.
+
+Optionen: (Eingabe / Schleife / Objekt)
+Richtige Antwort: Eingabe
+
+27. Eine Klasse ist ein ____ für Objekte.
+
+Optionen: (Bauplan / Attribut / Schleife)
+Richtige Antwort: Bauplan
+
+28. Eine Methode beschreibt das ____ eines Objekts.
+
+Optionen: (Verhalten / Alter / Speicherort)
+Richtige Antwort: Verhalten
+
+29. Eine Variable speichert einen ____.
+
+Optionen: (Wert / Algorithmus / Konstruktor)
+Richtige Antwort: Wert
+
+30. Eine FOR‑Schleife wird genutzt, wenn die Anzahl der Wiederholungen ____ ist.
+
+Optionen: (bekannt / zufällig / unbekannt)
+Richtige Antwort: bekannt
+
+31. Ein Objekt besitzt Attribute und ____.
+
+Optionen: (Methoden / Tabellen / Compiler)
+Richtige Antwort: Methoden
+
+32. Vererbung ermöglicht die Wiederverwendung von ____.
+
+Optionen: (Code / Zufallszahlen / Hardware)
+Richtige Antwort: Code
+
+33. Eine Liste speichert mehrere Elemente in ____.
+
+Optionen: (Reihenfolge / Zufall / Klassen)
+Richtige Antwort: Reihenfolge
+
+34. Eine IF‑Struktur prüft eine ____.
+
+Optionen: (Bedingung / Klasse / Schleife)
+Richtige Antwort: Bedingung
+
+35. Ein Konstruktor wird beim ____ eines Objekts ausgeführt.
+
+Optionen: (Erzeugen / Löschen / Kompilieren)
+Richtige Antwort: Erzeugen
+
+Weitere Multiple‑Choice (Single Choice)
+
+36. Was ist ein Attribut?
+
+A) Eine Eigenschaft eines Objekts
+B) Eine Schleife
+C) Eine Klasse
+D) Ein Algorithmus
+Richtige Antwort: A
+
+37. Was ist ein Parameter?
+
+A) Ein Wert, der an eine Methode übergeben wird
+B) Eine Klasse
+C) Ein Objekt
+D) Ein Rückgabewert
+Richtige Antwort: A
+
+38. Was beschreibt Kapselung?
+
+A) Verbergen interner Daten
+B) Wiederholung von Code
+C) Sortieren von Listen
+D) Erzeugen von Objekten
+Richtige Antwort: A
+
+39. Was ist ein Rückgabewert?
+
+A) Der Wert, den eine Methode liefert
+B) Eine Klasse
+C) Eine Schleife
+D) Ein Objekt
+Richtige Antwort: A
+
+40. Was ist ein Algorithmus?
+
+A) Eine endliche Folge von Schritten zur Lösung eines Problems
+B) Eine Klasse
+C) Ein Objekt
+D) Eine Datei
+Richtige Antwort: A
+
+
+20 weitere Fragen zu Pseudocode (allgemein) – mit Antworten
+
+Multiple Choice (Single Choice)
+
+1. Wofür wird Pseudocode hauptsächlich verwendet?
+
+A) Um Programme direkt auszuführen
+B) Um Algorithmen verständlich zu beschreiben
+C) Um Datenbanken zu modellieren
+D) Um Hardware anzusteuern
+Richtige Antwort: B
+
+2. Welche Schreibweise ist typisch für eine Zuweisung im Pseudocode?
+
+A) x == 5
+B) x := 5
+C) x => 5
+D) x << 5
+Richtige Antwort: B
+
+3. Welche Struktur beschreibt eine Wiederholung bis eine Bedingung erfüllt ist?
+
+A) IF
+B) REPEAT UNTIL
+C) METHOD
+D) CLASS
+Richtige Antwort: B
+
+4. Was ist ein Vorteil von Pseudocode?
+
+A) Er ist sprachabhängig
+B) Er ist schwer zu lesen
+C) Er ist leicht verständlich
+D) Er ist nur für Experten geeignet
+Richtige Antwort: C
+
+5. Welche Struktur wird genutzt, um eine Liste zu durchlaufen?
+
+A) IF
+B) FOREACH
+C) RETURN
+D) CLASS
+Richtige Antwort: B
+
+6. Was bedeutet „INITIALISIERE x MIT 0“?
+
+A) x wird gelöscht
+B) x wird auf 0 gesetzt
+C) x wird mit einer Liste verbunden
+D) x wird ausgegeben
+Richtige Antwort: B
+
+7. Welche Schreibweise beschreibt eine Bedingung?
+
+A) IF x > 10 THEN
+B) LOOP x
+C) METHOD x
+D) CLASS x
+Richtige Antwort: A
+
+8. Was bedeutet „GIB x AUS“ im Pseudocode?
+
+A) x wird gelöscht
+B) x wird ausgegeben
+C) x wird erhöht
+D) x wird kopiert
+Richtige Antwort: B
+
+9. Welche Struktur beendet eine Schleife sofort?
+
+A) STOP
+B) BREAK
+C) EXIT PROGRAM
+D) RETURN
+Richtige Antwort: B
+
+10. Was ist ein typischer Fehler im Pseudocode?
+
+A) Zu viele Kommentare
+B) Zu konkrete Programmiersyntax
+C) Zu einfache Formulierungen
+D) Zu kurze Variablennamen
+Richtige Antwort: B
+
+Multiple Choice (Mehrfachauswahl)
+
+11. Welche Elemente können in Pseudocode vorkommen?
+
+A) Bedingungen
+B) Schleifen
+C) Klassen
+D) Compilerbefehle
+Richtige Antworten: A, B, C
+
+12. Welche Vorteile hat Pseudocode?
+
+A) Unabhängig von Programmiersprachen
+B) Gut für Planung
+C) Direkt ausführbar
+D) Leicht verständlich
+Richtige Antworten: A, B, D
+
+13. Welche typischen Schlüsselwörter findet man in Pseudocode?
+
+A) IF
+B) WHILE
+C) METHOD
+D) DATABASE
+Richtige Antworten: A, B, C
+
+Wahr/Falsch
+14. Pseudocode ist eine formale Sprache.
+❌ Falsch
+
+15. Pseudocode kann zur Kommunikation zwischen Entwicklern genutzt werden.
+✔️ Wahr
+
+16. Pseudocode ist immer identisch mit der späteren Programmiersprache.
+❌ Falsch
+
+17. Pseudocode kann Kommentare enthalten.
+✔️ Wahr
+
+18. Pseudocode kann zur Planung von Algorithmen verwendet werden.
+✔️ Wahr
+
+Lückentext
+
+19. Eine IF‑Struktur prüft eine ____ und führt je nach Ergebnis Anweisungen aus.
+
+Optionen: (Bedingung / Schleife / Ausgabe)
+Richtige Antwort: Bedingung
+
+20. Eine WHILE‑Schleife läuft, solange die ____ wahr ist.
+
+Optionen: (Variable / Bedingung / Methode)
+Richtige Antwort: Bedingung
