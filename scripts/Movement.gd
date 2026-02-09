@@ -17,10 +17,11 @@ func _process(delta):
 	handle_animation(direction)
 
 func handle_animation(direction):
-	print(sprite)
 	if direction.x > 0:
 		sprite.scale.x = -1
 		sprite.play("walk")
 	elif direction.x < 0:
 		sprite.scale.x = 1
 		sprite.play("walk")
+	else :
+		sprite.play("idle")
