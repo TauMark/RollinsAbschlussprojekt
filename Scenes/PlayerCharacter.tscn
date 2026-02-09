@@ -61,7 +61,7 @@ size = Vector2(20, 25)
 position = Vector2(535, 329)
 script = ExtResource("1_5gnj7")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=2055319238]
+[node name="Sprite" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=2055319238]
 sprite_frames = SubResource("SpriteFrames_vjvuw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=695362494]
