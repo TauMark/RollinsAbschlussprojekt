@@ -25,3 +25,7 @@ func handle_animation(direction):
 		sprite.play("walk")
 	else :
 		sprite.play("idle")
+
+
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	pass # Replace with function body.
