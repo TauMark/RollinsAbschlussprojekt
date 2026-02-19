@@ -120,9 +120,8 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_x = 10
 theme_override_constants/shadow_offset_y = 10
 theme_override_fonts/font = ExtResource("3_n45e2")
-theme_override_font_sizes/font_size = 64
-text = "YO YO YO Hier Titel Einfuegen:
-Denke Ich"
+theme_override_font_sizes/font_size = 96
+text = "Caves & Quizzes"
 horizontal_alignment = 1
 vertical_alignment = 1
 
