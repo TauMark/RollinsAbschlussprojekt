@@ -1,0 +1,131 @@
+[gd_scene format=3 uid="uid://dfa5i4fnyslnc"]
+
+[ext_resource type="Script" uid="uid://c7wo0c6ktx6j8" path="res://scripts/main_menu.gd" id="1_1ehe0"]
+[ext_resource type="Texture2D" uid="uid://bc1eq1207iceg" path="res://Assets/Background/61666-video_games.jpg" id="2_ce3w2"]
+[ext_resource type="FontFile" uid="uid://2ox1h183a2ww" path="res://Assets/Fonts/Qaroxe.ttf" id="3_n45e2"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7vrkn"]
+texture = ExtResource("2_ce3w2")
+modulate_color = Color(0.74138474, 0.7413847, 0.74138457, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rhts7"]
+bg_color = Color(1, 0.96862745, 0.9411765, 0.78431374)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7vrkn"]
+bg_color = Color(0.81960785, 0.7921569, 0.77254903, 0.5882353)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fu7sn"]
+bg_color = Color(0.8117647, 0.7882353, 0.7607843, 0.6862745)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7vrkn"]
+
+[node name="MainMenu" type="Control" unique_id=291878752]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1ehe0")
+
+[node name="Panel" type="Panel" parent="." unique_id=370686319]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_7vrkn")
+
+[node name="Button Container" type="VBoxContainer" parent="." unique_id=906848766]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -293.0
+offset_top = 12.0
+offset_right = 278.0
+offset_bottom = 352.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 7
+
+[node name="New Game" type="Button" parent="Button Container" unique_id=1581230765]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.050980393, 0.050980393, 0.050980393, 0.78431374)
+theme_override_fonts/font = ExtResource("3_n45e2")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_rhts7")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_7vrkn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_fu7sn")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_7vrkn")
+text = "New Game"
+
+[node name="Load Game" type="Button" parent="Button Container" unique_id=1556075278]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.050980393, 0.050980393, 0.050980393, 0.78431374)
+theme_override_fonts/font = ExtResource("3_n45e2")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_rhts7")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_7vrkn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_fu7sn")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_7vrkn")
+text = "Load Game"
+
+[node name="Exit" type="Button" parent="Button Container" unique_id=1658722042]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.050980393, 0.050980393, 0.050980393, 0.78431374)
+theme_override_fonts/font = ExtResource("3_n45e2")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_rhts7")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_7vrkn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_fu7sn")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_7vrkn")
+text = "Exit"
+
+[node name="Titel" type="Label" parent="." unique_id=159633321]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -522.0
+offset_top = -400.0
+offset_right = 522.0
+offset_bottom = -246.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 10
+theme_override_constants/shadow_offset_y = 10
+theme_override_fonts/font = ExtResource("3_n45e2")
+theme_override_font_sizes/font_size = 64
+text = "YO YO YO Hier Titel Einfuegen:
+Denke Ich"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="Button Container/New Game" to="." method="_on_new_game_pressed"]
+[connection signal="pressed" from="Button Container/Load Game" to="." method="_on_load_game_pressed"]
+[connection signal="pressed" from="Button Container/Exit" to="." method="_on_exit_pressed"]
