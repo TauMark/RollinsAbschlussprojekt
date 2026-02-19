@@ -125,7 +125,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mdaju"]
 size = Vector2(19.5, 26)
 
-[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1813514298]
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1813514298 groups=["Player"]]
 script = ExtResource("1_5gnj7")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=380461627]
