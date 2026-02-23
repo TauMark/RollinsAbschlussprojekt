@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://dfa5i4fnyslnc"]
+[gd_scene format=3 uid="uid://bdid662sq38jd"]
 
 [ext_resource type="Script" uid="uid://c7wo0c6ktx6j8" path="res://scripts/main_menu.gd" id="1_1ehe0"]
 [ext_resource type="Texture2D" uid="uid://bc1eq1207iceg" path="res://Assets/Background/61666-video_games.jpg" id="2_ce3w2"]
@@ -42,6 +42,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_1ehe0")
+startScene = "res://Scenes/Level1.tscn"
 
 [node name="Panel" type="Panel" parent="." unique_id=370686319]
 layout_mode = 1
