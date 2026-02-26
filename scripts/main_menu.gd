@@ -13,7 +13,11 @@ func _process(delta: float) -> void:
 
 
 func _on_new_game_pressed() -> void:
+<<<<<<< Updated upstream
 	get_tree().change_scene_to_file(startScene) #change later to switch to game scene
+=======
+	get_tree().change_scene_to_file("res://Scenes/Level1.tscn") #change later to switch to game scene
+>>>>>>> Stashed changes
 
 
 func _on_load_game_pressed() -> void:

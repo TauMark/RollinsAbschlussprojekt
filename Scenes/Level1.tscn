@@ -1,8 +1,10 @@
 [gd_scene format=4 uid="uid://dt2nqngfilqwm"]
 
 [ext_resource type="Texture2D" uid="uid://crdkmyghcxjb4" path="res://Assets/Tilesheets/SpriteSheetMainBG_V2.png" id="1_q12u6"]
-[ext_resource type="Script" uid="uid://xhlxuk4qmvq5" path="res://scripts/Door.gd" id="2_joc8x"]
+[ext_resource type="Script" uid="uid://crxo15f26efsn" path="res://scripts/Door.gd" id="2_joc8x"]
 [ext_resource type="PackedScene" uid="uid://ducrjhp71a7sn" path="res://Scenes/PlayerCharacter.tscn" id="2_q12u6"]
+[ext_resource type="Script" uid="uid://dnec5cviy5suy" path="res://scripts/sub_viewportMiniMap.gd" id="4_jghel"]
+[ext_resource type="Texture2D" uid="uid://jgi2xjcp7uka" path="res://Assets/MainFig-1.png.png" id="5_slnnj"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_gfjgm"]
 tile_data = PackedInt32Array(0, 0, 0, 65536, 0, 0, 131072, 0, 0, 1, 0, 0, 65537, 0, 1, 131073, 0, 0, 2, 0, 0, 65538, 0, 0, 131074, 0, 0)
@@ -390,5 +392,38 @@ shape = SubResource("RectangleShape2D_ysn8j")
 
 [node name="CharacterBody2D" parent="." unique_id=1813514298 instance=ExtResource("2_q12u6")]
 position = Vector2(926, 553)
+
+[node name="MiniMap" type="CanvasLayer" parent="." unique_id=1376378954]
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="MiniMap" unique_id=1988088917]
+modulate = Color(1, 1, 1, 0.7529412)
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -256.0
+offset_bottom = 256.0
+grow_horizontal = 0
+size_flags_horizontal = 8
+
+[node name="SubViewport" type="SubViewport" parent="MiniMap/SubViewportContainer" unique_id=355777875]
+handle_input_locally = false
+size = Vector2i(256, 256)
+render_target_update_mode = 4
+script = ExtResource("4_jghel")
+
+[node name="Camera2D" type="Camera2D" parent="MiniMap/SubViewportContainer/SubViewport" unique_id=1332485427]
+zoom = Vector2(0.2, 0.2)
+
+[node name="Line2D" type="Line2D" parent="MiniMap/SubViewportContainer" unique_id=1219402529]
+modulate = Color(0, 0, 0, 1)
+scale = Vector2(0.49812025, 0.5131034)
+points = PackedVector2Array(513.96985, -1.9698107, 513.9321, 498.9247, 0, 498.9247, 0.037736665, -1.9698107, 441.69818, -1.9698107)
+closed = true
+default_color = Color(0.47843137, 0.47843137, 0.47843137, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="MiniMap/SubViewportContainer" unique_id=1635200083]
+position = Vector2(128.00003, 128)
+scale = Vector2(0.84374857, 0.84374976)
+texture = ExtResource("5_slnnj")
 
 [connection signal="body_entered" from="TileMapLayer/DoorOne" to="TileMapLayer/DoorOne" method="_on_body_entered"]
