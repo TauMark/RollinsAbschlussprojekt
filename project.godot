@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="Neues SpielRollinsAbschlussprojekt"
+run/main_scene="uid://bdid662sq38jd"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
