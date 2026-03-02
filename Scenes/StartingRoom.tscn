@@ -1,11 +1,7 @@
 [gd_scene format=4 uid="uid://dt2nqngfilqwm"]
 
 [ext_resource type="Texture2D" uid="uid://crdkmyghcxjb4" path="res://Assets/Tilesheets/SpriteSheetMainBG_V2.png" id="1_q12u6"]
-<<<<<<< HEAD:Scenes/StartingRoom.tscn
 [ext_resource type="Script" uid="uid://xhlxuk4qmvq5" path="res://scripts/Map.gd" id="2_joc8x"]
-=======
-[ext_resource type="Script" uid="uid://crxo15f26efsn" path="res://scripts/Door.gd" id="2_joc8x"]
->>>>>>> 2382293ef5e7da5f9352336f3a9debf86a605352:Scenes/Level1.tscn
 [ext_resource type="PackedScene" uid="uid://ducrjhp71a7sn" path="res://Scenes/PlayerCharacter.tscn" id="2_q12u6"]
 [ext_resource type="Script" uid="uid://dnec5cviy5suy" path="res://scripts/sub_viewportMiniMap.gd" id="4_jghel"]
 [ext_resource type="Texture2D" uid="uid://jgi2xjcp7uka" path="res://Assets/MainFig-1.png.png" id="5_slnnj"]
@@ -393,12 +389,10 @@ shape = SubResource("RectangleShape2D_ysn8j")
 [node name="CharacterBody2D" parent="." unique_id=1813514298 instance=ExtResource("2_q12u6")]
 position = Vector2(926, 553)
 
-<<<<<<< HEAD:Scenes/StartingRoom.tscn
 [connection signal="body_entered" from="TileMapLayer/DoorOne" to="." method="_on_body_entered_left"]
 [connection signal="body_entered" from="TileMapLayer/DoorTwo" to="." method="_on_body_entered_up"]
 [connection signal="body_entered" from="TileMapLayer/DoorThree" to="." method="_on_door_body_entered_right"]
 [connection signal="body_entered" from="TileMapLayer/DoorFour" to="." method="_on_body_entered_down"]
-=======
 [node name="MiniMap" type="CanvasLayer" parent="." unique_id=1376378954]
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="MiniMap" unique_id=1988088917]
@@ -433,4 +427,3 @@ scale = Vector2(0.84374857, 0.84374976)
 texture = ExtResource("5_slnnj")
 
 [connection signal="body_entered" from="TileMapLayer/DoorOne" to="TileMapLayer/DoorOne" method="_on_body_entered"]
->>>>>>> 2382293ef5e7da5f9352336f3a9debf86a605352:Scenes/Level1.tscn
