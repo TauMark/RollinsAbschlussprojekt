@@ -1,11 +1,5 @@
 [
 	[
 		"res://Scenes/StartingRoom.tscn"
-	],
-	[
-		"res://Scenes/Rooms/Level2 (2).tscn"
-	],
-	[
-		"res://Scenes/Rooms/Level2.tscn"
 	]
 ]

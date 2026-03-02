@@ -3,7 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://crdkmyghcxjb4" path="res://Assets/Tilesheets/SpriteSheetMainBG_V2.png" id="1_q12u6"]
 [ext_resource type="Script" uid="uid://xhlxuk4qmvq5" path="res://scripts/Map.gd" id="2_joc8x"]
 [ext_resource type="PackedScene" uid="uid://ducrjhp71a7sn" path="res://Scenes/PlayerCharacter.tscn" id="2_q12u6"]
-[ext_resource type="Script" path="res://scripts/sub_viewportMiniMap.gd" id="4_jghel"]
+[ext_resource type="PackedScene" uid="uid://cs143sj823m0m" path="res://Scenes/QuizMaster.tscn" id="4_ftgye"]
+[ext_resource type="Script" uid="uid://dnec5cviy5suy" path="res://scripts/sub_viewportMiniMap.gd" id="4_jghel"]
 [ext_resource type="Texture2D" uid="uid://jgi2xjcp7uka" path="res://Assets/MainFig-1.png.png" id="5_slnnj"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_gfjgm"]
@@ -388,6 +389,9 @@ shape = SubResource("RectangleShape2D_ysn8j")
 
 [node name="CharacterBody2D" parent="." unique_id=1813514298 instance=ExtResource("2_q12u6")]
 position = Vector2(926, 553)
+
+[node name="QuizMaster" parent="." unique_id=590352954 instance=ExtResource("4_ftgye")]
+position = Vector2(1227, 546)
 
 [node name="MiniMap" type="CanvasLayer" parent="." unique_id=1376378954]
 
