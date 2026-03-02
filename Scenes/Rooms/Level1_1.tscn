@@ -1,15 +1,13 @@
-[gd_scene format=4 uid="uid://c8vck75jyqv22"]
+[gd_scene format=4 uid="uid://dt2nqngfilqwm"]
 
-<<<<<<<< HEAD:Scenes/Rooms/Level2.tscn
-[ext_resource type="Texture2D" uid="uid://crdkmyghcxjb4" path="res://Assets/Tilesheets/SpriteSheetMainBG_V2.png" id="1_shvdc"]
-[ext_resource type="Script" uid="uid://xhlxuk4qmvq5" path="res://scripts/Map.gd" id="2_74uxb"]
-[ext_resource type="PackedScene" uid="uid://ducrjhp71a7sn" path="res://Scenes/PlayerCharacter.tscn" id="3_u68rl"]
-[ext_resource type="Texture2D" uid="uid://djh1rm7cdvgkf" path="res://Assets/Char/MainFig_Walking.png" id="4_y6sth"]
-========
-[ext_resource type="Texture2D" uid="uid://crdkmyghcxjb4" path="res://Assets/Tilesheets/SpriteSheetMainBG_V2.png" id="1_ajkda"]
-[ext_resource type="Texture2D" uid="uid://cvn1velas66yh" path="res://Assets/Wodden_Crate_Sprite.png" id="2_3v5mb"]
-[ext_resource type="Texture2D" uid="uid://e441vjj2o4wn" path="res://Assets/ArchAngelTest.png" id="3_gpe3b"]
->>>>>>>> origin/tilesheet:Scenes/Level1_1.tscn
+[ext_resource type="Script" uid="uid://xhlxuk4qmvq5" path="res://scripts/Map.gd" id="1_kayvu"]
+[ext_resource type="Texture2D" uid="uid://crdkmyghcxjb4" path="res://Assets/Tilesheets/SpriteSheetMainBG_V2.png" id="2_5ars6"]
+[ext_resource type="Texture2D" uid="uid://cvn1velas66yh" path="res://Assets/Wodden_Crate_Sprite.png" id="3_kapj8"]
+[ext_resource type="Texture2D" uid="uid://e441vjj2o4wn" path="res://Assets/ArchAngelTest.png" id="4_kh6ql"]
+[ext_resource type="PackedScene" uid="uid://ducrjhp71a7sn" path="res://Scenes/PlayerCharacter.tscn" id="5_eniqn"]
+[ext_resource type="PackedScene" path="res://Scenes/QuizMaster.tscn" id="6_2musa"]
+[ext_resource type="Script" path="res://scripts/sub_viewportMiniMap.gd" id="7_nyrm7"]
+[ext_resource type="Texture2D" uid="uid://jgi2xjcp7uka" path="res://Assets/MainFig-1.png.png" id="8_j0whg"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_gfjgm"]
 tile_data = PackedInt32Array(0, 0, 0, 65536, 0, 0, 131072, 0, 0, 1, 0, 0, 65537, 0, 1, 131073, 0, 0, 2, 0, 0, 65538, 0, 0, 131074, 0, 0)
@@ -18,11 +16,7 @@ tile_data = PackedInt32Array(0, 0, 0, 65536, 0, 0, 131072, 0, 0, 1, 0, 0, 65537,
 tile_data = PackedInt32Array(0, 0, 0, 65536, 0, 0, 131072, 0, 0, 1, 0, 0, 65537, 0, 1, 131073, 0, 0, 2, 0, 0, 65538, 0, 0, 131074, 0, 0, 3, 0, 0, 65539, 0, 0, 131075, 0, 0, 4, 0, 0, 65540, 0, 2, 131076, 0, 0, 5, 0, 0, 65541, 0, 0, 131077, 0, 0)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3h1ab"]
-<<<<<<<< HEAD:Scenes/Rooms/Level2.tscn
-texture = ExtResource("1_shvdc")
-========
-texture = ExtResource("1_ajkda")
->>>>>>>> origin/tilesheet:Scenes/Level1_1.tscn
+texture = ExtResource("2_5ars6")
 texture_region_size = Vector2i(96, 96)
 0:0/0 = 0
 0:0/0/terrain_set = 0
@@ -350,7 +344,6 @@ sources/3 = SubResource("TileSetAtlasSource_3h1ab")
 pattern_0 = SubResource("TileMapPattern_gfjgm")
 pattern_1 = SubResource("TileMapPattern_3vi7k")
 
-<<<<<<<< HEAD:Scenes/Rooms/Level2.tscn
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jghel"]
 size = Vector2(20, 128)
 
@@ -362,33 +355,31 @@ size = Vector2(20, 128)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ysn8j"]
 size = Vector2(128, 20)
-========
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jghel"]
-texture = ExtResource("2_3v5mb")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_627kl"]
+texture = ExtResource("3_kapj8")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_slnnj"]
-texture = ExtResource("3_gpe3b")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7rdy2"]
+texture = ExtResource("4_kh6ql")
 texture_region_size = Vector2i(32, 32)
 0:0/size_in_atlas = Vector2i(1, 2)
 0:0/0 = 0
 0:0/0/texture_origin = Vector2i(0, 16)
 
-[sub_resource type="TileSet" id="TileSet_slnnj"]
+[sub_resource type="TileSet" id="TileSet_hoxh3"]
 tile_size = Vector2i(32, 32)
-sources/0 = SubResource("TileSetAtlasSource_jghel")
-sources/2 = SubResource("TileSetAtlasSource_slnnj")
->>>>>>>> origin/tilesheet:Scenes/Level1_1.tscn
+sources/0 = SubResource("TileSetAtlasSource_627kl")
+sources/2 = SubResource("TileSetAtlasSource_7rdy2")
 
 [node name="Map" type="Node2D" unique_id=1586575300]
+script = ExtResource("1_kayvu")
 
-[node name="Map" type="TileMapLayer" parent="." unique_id=1516116214]
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1516116214]
 position = Vector2(-2, 0)
 tile_map_data = PackedByteArray("AAAAAAAAAwAAAAUAAAABAAAAAwAAAAUAAAACAAAAAwAAAAUAAAADAAAAAwAAAAUAAAAEAAAAAwAAAAUAAAAFAAAAAwAAAAUAAAAGAAAAAwAAAAUAAAAHAAAAAwAAAAUAAAAIAAAAAwAAAAUAAAAJAAAAAwAAAAUAAAAKAAAAAwAAAAUAAAALAAAAAwAAAAUAAAAMAAAAAwAAAAUAAAANAAAAAwAAAAUAAAAOAAAAAwAAAAUAAAAPAAAAAwAAAAUAAAAQAAAAAwAAAAUAAAARAAAAAwAAAAUAAAASAAAAAwAAAAUAAAATAAAAAwAAAAUAAAAAAAEAAwAAAAUAAAAAAAIAAwAAAAUAAAAAAAMAAwAAAAUAAAAAAAQAAwAAAAUAAAAAAAUAAwAAAAUAAAAAAAYAAwAAAAUAAAAAAAcAAwAAAAUAAAAAAAgAAwAAAAUAAAATAAEAAwAAAAUAAAATAAIAAwAAAAUAAAATAAMAAwAAAAUAAAATAAQAAwAAAAUAAAATAAUAAwAAAAUAAAATAAYAAwAAAAUAAAATAAcAAwAAAAUAAAATAAgAAwAAAAUAAAASAAEAAwAAAAUAAAASAAIAAwAAAAIAAAASAAMAAwAAAAIAAAASAAQAAwAAAAIAAAASAAUAAwABAAQAAAASAAYAAwACAAQAAAASAAcAAwAAAAIAAAASAAgAAwAAAAIAAAABAAEAAwAAAAUAAAABAAIAAwACAAIAAAABAAMAAwACAAIAAAABAAQAAwACAAIAAAABAAUAAwADAAMAAAABAAYAAwACAAMAAAABAAcAAwACAAIAAAABAAgAAwACAAIAAAACAAEAAwAEAAEAAAADAAEAAwAEAAEAAAAEAAEAAwAEAAEAAAAFAAEAAwAEAAEAAAAGAAEAAwAEAAEAAAAHAAEAAwAEAAEAAAAIAAEAAwAEAAEAAAAJAAEAAwAEAAMAAAAKAAEAAwAAAAQAAAALAAEAAwAEAAEAAAAMAAEAAwAEAAEAAAANAAEAAwAEAAEAAAAOAAEAAwAEAAEAAAAPAAEAAwAEAAEAAAAQAAEAAwAEAAEAAAARAAEAAwAEAAEAAAACAAIAAwAAAAAAAAACAAMAAwAAAAAAAAACAAQAAwAAAAAAAAACAAUAAwAAAAAAAAACAAYAAwAAAAAAAAACAAcAAwAAAAAAAAACAAgAAwAAAAAAAAADAAIAAwAAAAAAAAADAAMAAwAAAAAAAAADAAQAAwAAAAAAAAADAAUAAwAAAAAAAAADAAYAAwAAAAAAAAADAAcAAwAAAAAAAAADAAgAAwAAAAAAAAAEAAIAAwAAAAAAAAAEAAMAAwAAAAAAAAAEAAQAAwAAAAAAAAAEAAUAAwAAAAAAAAAEAAYAAwAAAAAAAAAEAAcAAwAAAAAAAAAEAAgAAwAAAAAAAAAFAAIAAwAAAAAAAAAFAAMAAwADAAAAAAAFAAQAAwABAAEAAAAFAAUAAwABAAEAAAAFAAYAAwABAAEAAAAFAAcAAwABAAEAAAAFAAgAAwACAAAAAAAGAAIAAwAAAAAAAAAGAAMAAwAEAAAAAAAGAAQAAwACAAIAAAAGAAUAAwACAAIAAAAGAAYAAwACAAIAAAAGAAcAAwACAAIAAAAGAAgAAwABAAAAAAAHAAIAAwAAAAAAAAAHAAMAAwAAAAAAAAAHAAQAAwAAAAAAAAAHAAUAAwAAAAAAAAAHAAYAAwAAAAAAAAAHAAcAAwAAAAAAAAAHAAgAAwAAAAAAAAAIAAIAAwAAAAAAAAAIAAMAAwAAAAAAAAAIAAQAAwAAAAAAAAAIAAUAAwAAAAAAAAAIAAYAAwAAAAAAAAAIAAcAAwAAAAAAAAAIAAgAAwAAAAAAAAAJAAIAAwAAAAAAAAAJAAMAAwAAAAAAAAAJAAQAAwAAAAAAAAAJAAUAAwAAAAAAAAAJAAYAAwAAAAAAAAAJAAcAAwAAAAAAAAAJAAgAAwAAAAAAAAAKAAIAAwAAAAAAAAAKAAMAAwAAAAAAAAAKAAQAAwAAAAAAAAAKAAUAAwAAAAAAAAAKAAYAAwAAAAAAAAAKAAcAAwAAAAAAAAAKAAgAAwAAAAAAAAALAAIAAwAAAAAAAAALAAMAAwAAAAAAAAALAAQAAwAAAAAAAAALAAUAAwAAAAAAAAALAAYAAwAAAAAAAAALAAcAAwAAAAAAAAALAAgAAwAAAAAAAAAMAAIAAwAAAAAAAAAMAAMAAwAAAAAAAAAMAAQAAwAAAAAAAAAMAAUAAwAAAAAAAAAMAAYAAwAAAAAAAAAMAAcAAwAAAAAAAAAMAAgAAwAAAAAAAAANAAIAAwAAAAAAAAANAAMAAwADAAAAAAANAAQAAwAAAAIAAAANAAUAAwAAAAIAAAANAAYAAwAAAAIAAAANAAcAAwAAAAIAAAANAAgAAwACAAAAAAAOAAIAAwAAAAAAAAAOAAMAAwAEAAAAAAAOAAQAAwADAAEAAAAOAAUAAwADAAEAAAAOAAYAAwADAAEAAAAOAAcAAwADAAEAAAAOAAgAAwABAAAAAAAPAAIAAwAAAAAAAAAPAAMAAwAAAAAAAAAPAAQAAwAAAAAAAAAPAAUAAwAAAAAAAAAPAAYAAwAAAAAAAAAPAAcAAwAAAAAAAAAPAAgAAwAAAAAAAAAQAAIAAwAAAAAAAAAQAAMAAwAAAAAAAAAQAAQAAwAAAAAAAAAQAAUAAwAAAAAAAAAQAAYAAwAAAAAAAAAQAAcAAwAAAAAAAAAQAAgAAwAAAAAAAAARAAIAAwAAAAAAAAARAAMAAwAAAAAAAAARAAQAAwAAAAAAAAARAAUAAwAAAAAAAAARAAYAAwAAAAAAAAARAAcAAwAAAAAAAAARAAgAAwAAAAAAAAAAAAoAAwAAAAUAAAABAAoAAwAAAAUAAAACAAoAAwABAAIAAAADAAoAAwABAAIAAAAEAAoAAwABAAIAAAAFAAoAAwABAAIAAAAGAAoAAwABAAIAAAAHAAoAAwABAAIAAAAIAAoAAwABAAIAAAAJAAoAAwAEAAQAAAAKAAoAAwADAAQAAAALAAoAAwABAAIAAAAMAAoAAwABAAIAAAANAAoAAwABAAIAAAAOAAoAAwABAAIAAAAPAAoAAwABAAIAAAAQAAoAAwABAAIAAAARAAoAAwABAAIAAAASAAoAAwAAAAUAAAATAAoAAwAAAAUAAAAAAAsAAwAAAAUAAAABAAsAAwAAAAUAAAACAAsAAwAAAAUAAAADAAsAAwAAAAUAAAAEAAsAAwAAAAUAAAAFAAsAAwAAAAUAAAAGAAsAAwAAAAUAAAAHAAsAAwAAAAUAAAAIAAsAAwAAAAUAAAAJAAsAAwAAAAUAAAAKAAsAAwAAAAUAAAALAAsAAwAAAAUAAAAMAAsAAwAAAAUAAAANAAsAAwAAAAUAAAAOAAsAAwAAAAUAAAAPAAsAAwAAAAUAAAAQAAsAAwAAAAUAAAARAAsAAwAAAAUAAAASAAsAAwAAAAUAAAATAAsAAwAAAAUAAAAAAAkAAwAAAAUAAAABAAkAAwACAAIAAAACAAkAAwAAAAAAAAADAAkAAwAAAAAAAAAEAAkAAwAAAAAAAAAFAAkAAwAAAAAAAAAGAAkAAwAAAAAAAAAHAAkAAwAAAAAAAAAIAAkAAwAAAAAAAAAJAAkAAwAAAAAAAAAKAAkAAwAAAAAAAAALAAkAAwAAAAAAAAAMAAkAAwAAAAAAAAANAAkAAwAAAAAAAAAOAAkAAwAAAAAAAAAPAAkAAwAAAAAAAAAQAAkAAwAAAAAAAAARAAkAAwAAAAAAAAASAAkAAwAAAAIAAAATAAkAAwAAAAUAAAA=")
 tile_set = SubResource("TileSet_3h1ab")
-<<<<<<<< HEAD:Scenes/Rooms/Level2.tscn
-script = ExtResource("2_74uxb")
 
 [node name="DoorOne" type="Area2D" parent="TileMapLayer" unique_id=963245377]
 position = Vector2(96, 575)
@@ -415,20 +406,51 @@ position = Vector2(960, 1055)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TileMapLayer/DoorFour" unique_id=338171890]
 shape = SubResource("RectangleShape2D_ysn8j")
 
-[node name="MainFigWalking" type="Sprite2D" parent="TileMapLayer" unique_id=1785739044]
-position = Vector2(825, 836)
-texture = ExtResource("4_y6sth")
+[node name="Deco" type="TileMapLayer" parent="." unique_id=1061734586]
+tile_map_data = PackedByteArray("AAARAAsAAAAAAAAAAAARAAwAAAAAAAAAAAASAAsAAAAAAAAAAAASAAwAAAAAAAAAAAATAAsAAAAAAAAAAAATAAwAAAAAAAAAAAAUAAsAAAAAAAAAAAARABcAAAAAAAAAAAARABgAAAAAAAAAAAASABcAAAAAAAAAAAATABcAAAAAAAAAAAAUABcAAAAAAAAAAAAqABgAAAAAAAAAAAApABcAAAAAAAAAAAAqABcAAAAAAAAAAAAqAAoAAAAAAAAAAAAqAAsAAAAAAAAAAAApAAoAAAAAAAAAAAAoAAoAAAAAAAAAAAAoAAsAAAAAAAAAAAApAAkAAAAAAAAAAAAqAAkAAAAAAAAAAAA1AB0AAAAAAAAAAAA0AB4AAAAAAAAAAAA1AB4AAAAAAAAAAAA2AB0AAAAAAAAAAAAaAB4AAgAAAAAAAAAhAB4AAgAAAAAAAAA2AA4AAgAAAAAAAAA2ABUAAgAAAAAAAAAFAA4AAgAAAAAAAAAFABUAAgAAAAAAAAAaAAUAAgAAAAAAAAAhAAUAAgAAAAAAAAAZABIAAgAAAAAAAAAiABIAAgAAAAAAAAA=")
+tile_set = SubResource("TileSet_hoxh3")
 
-[node name="CharacterBody2D" parent="." unique_id=1813514298 instance=ExtResource("3_u68rl")]
+[node name="CharacterBody2D" parent="." unique_id=1813514298 instance=ExtResource("5_eniqn")]
 position = Vector2(926, 553)
 
-[connection signal="body_entered" from="TileMapLayer/DoorOne" to="TileMapLayer" method="_on_body_entered_left"]
-[connection signal="body_entered" from="TileMapLayer/DoorTwo" to="TileMapLayer" method="_on_body_entered_up"]
-[connection signal="body_entered" from="TileMapLayer/DoorThree" to="TileMapLayer" method="_on_door_body_entered_right"]
-[connection signal="body_entered" from="TileMapLayer/DoorFour" to="TileMapLayer" method="_on_body_entered_down"]
-========
+[node name="QuizMaster" parent="." unique_id=590352954 instance=ExtResource("6_2musa")]
+position = Vector2(1227, 546)
 
-[node name="Deco" type="TileMapLayer" parent="." unique_id=759391610]
-tile_map_data = PackedByteArray("AAALAAwAAAAAAAAAAAALAA0AAAAAAAAAAAALAA4AAAAAAAAAAAAMAA4AAAAAAAAAAAAMAA0AAAAAAAAAAAALAA8AAAAAAAAAAAAfABkAAAAAAAAAAAAeABkAAAAAAAAAAAAdABkAAAAAAAAAAAAcABkAAAAAAAAAAAAcABoAAAAAAAAAAAAeABcAAAAAAAAAAAAvAAgAAAAAAAAAAAAwAAgAAAAAAAAAAAAwAAkAAAAAAAAAAAAxAAoAAAAAAAAAAAAxAAsAAAAAAAAAAAAyAAsAAAAAAAAAAAAhAAkAAAAAAAAAAAAgAAkAAAAAAAAAAAAfAAoAAAAAAAAAAAAcAAwAAAAAAAAAAAAaAAUAAgAAAAAAAAAhAAUAAgAAAAAAAAA=")
-tile_set = SubResource("TileSet_slnnj")
->>>>>>>> origin/tilesheet:Scenes/Level1_1.tscn
+[node name="MiniMap" type="CanvasLayer" parent="." unique_id=1860261053]
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="MiniMap" unique_id=1530428083]
+modulate = Color(1, 1, 1, 0.7529412)
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -256.0
+offset_bottom = 256.0
+grow_horizontal = 0
+size_flags_horizontal = 8
+metadata/_edit_use_anchors_ = true
+
+[node name="SubViewport" type="SubViewport" parent="MiniMap/SubViewportContainer" unique_id=1645035972]
+handle_input_locally = false
+size = Vector2i(256, 256)
+render_target_update_mode = 4
+script = ExtResource("7_nyrm7")
+
+[node name="Camera2D" type="Camera2D" parent="MiniMap/SubViewportContainer/SubViewport" unique_id=1862748912]
+zoom = Vector2(0.2, 0.2)
+
+[node name="Line2D" type="Line2D" parent="MiniMap/SubViewportContainer" unique_id=365285029]
+modulate = Color(0, 0, 0, 1)
+scale = Vector2(0.49812025, 0.5131034)
+points = PackedVector2Array(513.96985, -1.9698107, 513.9321, 498.9247, 0, 498.9247, 0.037736665, -1.9698107, 441.69818, -1.9698107)
+closed = true
+default_color = Color(0.47843137, 0.47843137, 0.47843137, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="MiniMap/SubViewportContainer" unique_id=1183712607]
+position = Vector2(128.00003, 128)
+scale = Vector2(0.84374857, 0.84374976)
+texture = ExtResource("8_j0whg")
+
+[connection signal="body_entered" from="TileMapLayer/DoorOne" to="." method="_on_body_entered_left"]
+[connection signal="body_entered" from="TileMapLayer/DoorTwo" to="." method="_on_body_entered_up"]
+[connection signal="body_entered" from="TileMapLayer/DoorThree" to="." method="_on_door_body_entered_right"]
+[connection signal="body_entered" from="TileMapLayer/DoorFour" to="." method="_on_body_entered_down"]
