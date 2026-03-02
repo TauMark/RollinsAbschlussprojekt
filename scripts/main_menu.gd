@@ -16,9 +16,13 @@ func _process(delta: float) -> void:
 
 
 func _on_new_game_pressed() -> void:
+<<<<<<< HEAD
 	DirAccess.remove_absolute("res://data/mapdata.json")
 	DirAccess.remove_absolute("res://data/playerdata.json")
 	get_tree().change_scene_to_file(startScene) #change later to switch to game scene
+=======
+	get_tree().change_scene_to_file("res://Scenes/Level1.tscn") 
+>>>>>>> 2382293ef5e7da5f9352336f3a9debf86a605352
 
 
 func _on_load_game_pressed() -> void:
