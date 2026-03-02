@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cqam825hou1bi"
-path="res://.godot/imported/SprieSheetBG_Wood.png-411291c9647c3c942a26102542a71a21.ctex"
+uid="uid://bwvceaqtt2vu8"
+path="res://.godot/imported/SpriteSheetBG_Wood.png-80e4baf0bcf50079c5481424038064d3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Tilesheets/SprieSheetBG_Wood.png"
-dest_files=["res://.godot/imported/SprieSheetBG_Wood.png-411291c9647c3c942a26102542a71a21.ctex"]
+source_file="res://Assets/Tilesheets/SpriteSheetBG_Wood.png"
+dest_files=["res://.godot/imported/SpriteSheetBG_Wood.png-80e4baf0bcf50079c5481424038064d3.ctex"]
 
 [params]
 
