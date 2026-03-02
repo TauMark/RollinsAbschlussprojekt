@@ -1,8 +1,8 @@
 [gd_scene format=4 uid="uid://b6ai4f0464krq"]
 
-[ext_resource type="Texture2D" uid="uid://crdkmyghcxjb4" path="res://Assets/Tilesheets/SpriteSheetMainBG_V2.png" id="1_llwst"]
-[ext_resource type="Texture2D" uid="uid://cvn1velas66yh" path="res://Assets/Wodden_Crate_Sprite.png" id="2_0plju"]
-[ext_resource type="Texture2D" uid="uid://e441vjj2o4wn" path="res://Assets/ArchAngelTest.png" id="3_ms0wi"]
+[ext_resource type="Texture2D" uid="uid://crdkmyghcxjb4" path="res://Assets/Tilesheets/SpriteSheetMainBG_V2.png" id="1_s5hwd"]
+[ext_resource type="Texture2D" uid="uid://cvn1velas66yh" path="res://Assets/Wodden_Crate_Sprite.png" id="2_ix854"]
+[ext_resource type="Texture2D" uid="uid://e441vjj2o4wn" path="res://Assets/ArchAngelTest.png" id="3_86pkl"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_gfjgm"]
 tile_data = PackedInt32Array(0, 0, 0, 65536, 0, 0, 131072, 0, 0, 1, 0, 0, 65537, 0, 1, 131073, 0, 0, 2, 0, 0, 65538, 0, 0, 131074, 0, 0)
@@ -11,7 +11,7 @@ tile_data = PackedInt32Array(0, 0, 0, 65536, 0, 0, 131072, 0, 0, 1, 0, 0, 65537,
 tile_data = PackedInt32Array(0, 0, 0, 65536, 0, 0, 131072, 0, 0, 1, 0, 0, 65537, 0, 1, 131073, 0, 0, 2, 0, 0, 65538, 0, 0, 131074, 0, 0, 3, 0, 0, 65539, 0, 0, 131075, 0, 0, 4, 0, 0, 65540, 0, 2, 131076, 0, 0, 5, 0, 0, 65541, 0, 0, 131077, 0, 0)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3h1ab"]
-texture = ExtResource("1_llwst")
+texture = ExtResource("1_s5hwd")
 texture_region_size = Vector2i(96, 96)
 0:0/0 = 0
 0:0/0/terrain_set = 0
@@ -341,12 +341,12 @@ pattern_0 = SubResource("TileMapPattern_gfjgm")
 pattern_1 = SubResource("TileMapPattern_3vi7k")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ms0wi"]
-texture = ExtResource("2_0plju")
+texture = ExtResource("2_ix854")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5awjf"]
-texture = ExtResource("3_ms0wi")
+texture = ExtResource("3_86pkl")
 texture_region_size = Vector2i(32, 32)
 0:0/size_in_atlas = Vector2i(1, 2)
 0:0/0 = 0
