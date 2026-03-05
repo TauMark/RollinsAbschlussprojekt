@@ -1,10 +1,10 @@
 [gd_scene format=4 uid="uid://dt2nqngfilqwm"]
 
 [ext_resource type="Texture2D" uid="uid://crdkmyghcxjb4" path="res://Assets/Tilesheets/SpriteSheetMainBG_V2.png" id="1_q12u6"]
-[ext_resource type="Script" uid="uid://crxo15f26efsn" path="res://scripts/Door.gd" id="2_joc8x"]
 [ext_resource type="PackedScene" uid="uid://ducrjhp71a7sn" path="res://Scenes/PlayerCharacter.tscn" id="2_q12u6"]
 [ext_resource type="Script" uid="uid://dnec5cviy5suy" path="res://scripts/sub_viewportMiniMap.gd" id="4_jghel"]
 [ext_resource type="Texture2D" uid="uid://jgi2xjcp7uka" path="res://Assets/MainFig-1.png.png" id="5_slnnj"]
+[ext_resource type="PackedScene" uid="uid://c7w2caq00o6c5" path="res://Scenes/pause_menu.tscn" id="5_t3or0"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_gfjgm"]
 tile_data = PackedInt32Array(0, 0, 0, 65536, 0, 0, 131072, 0, 0, 1, 0, 0, 65537, 0, 1, 131073, 0, 0, 2, 0, 0, 65538, 0, 0, 131074, 0, 0)
@@ -362,8 +362,6 @@ tile_set = SubResource("TileSet_3h1ab")
 
 [node name="DoorOne" type="Area2D" parent="TileMapLayer" unique_id=963245377]
 position = Vector2(96, 575)
-script = ExtResource("2_joc8x")
-room_scene = "res://Scenes/Room_one.tscn"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TileMapLayer/DoorOne" unique_id=1702312112]
 position = Vector2(0, 1)
@@ -371,21 +369,18 @@ shape = SubResource("RectangleShape2D_jghel")
 
 [node name="DoorTwo" type="Area2D" parent="TileMapLayer" unique_id=1675056591]
 position = Vector2(960, 97)
-script = ExtResource("2_joc8x")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TileMapLayer/DoorTwo" unique_id=579224389]
 shape = SubResource("RectangleShape2D_slnnj")
 
 [node name="DoorThree" type="Area2D" parent="TileMapLayer" unique_id=1996517222]
 position = Vector2(1824, 576)
-script = ExtResource("2_joc8x")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TileMapLayer/DoorThree" unique_id=541262931]
 shape = SubResource("RectangleShape2D_t3or0")
 
 [node name="DoorFour" type="Area2D" parent="TileMapLayer" unique_id=254808461]
 position = Vector2(960, 1055)
-script = ExtResource("2_joc8x")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TileMapLayer/DoorFour" unique_id=338171890]
 shape = SubResource("RectangleShape2D_ysn8j")
@@ -425,5 +420,9 @@ default_color = Color(0.47843137, 0.47843137, 0.47843137, 1)
 position = Vector2(128.00003, 128)
 scale = Vector2(0.84374857, 0.84374976)
 texture = ExtResource("5_slnnj")
+
+[node name="PauseMenu" type="CanvasLayer" parent="." unique_id=1733807581]
+
+[node name="PauseMenu" parent="PauseMenu" unique_id=315113575 instance=ExtResource("5_t3or0")]
 
 [connection signal="body_entered" from="TileMapLayer/DoorOne" to="TileMapLayer/DoorOne" method="_on_body_entered"]
