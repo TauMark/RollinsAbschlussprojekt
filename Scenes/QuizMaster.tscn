@@ -1,21 +1,26 @@
 [gd_scene format=3 uid="uid://cs143sj823m0m"]
 
 [ext_resource type="Texture2D" uid="uid://b08noggrphrox" path="res://Assets/Char/Quizmaster.png" id="1_6vsac"]
+[ext_resource type="FontFile" uid="uid://2ox1h183a2ww" path="res://Assets/Fonts/Qaroxe.ttf" id="2_n5x2g"]
 
 [sub_resource type="GDScript" id="GDScript_6vsac"]
 script/source = "extends Node2D
 
 @onready var anim = $Visual/AnimationPlayer
-@onready var speech_label = Label.new()
+@onready var bubble = $SpeechBubble
+@onready var bubble_label = $SpeechBubble/PanelContainer/MarginContainer/Label
+
+var dialog = [\"Hello! Ready for a Quiz?\", \"I got some crazy questions\", \"Are you ready??\"]
+var typing_speed = 0.05
+var waiting_for_input = false
+var advance_key = \"ui_accept\"
+var dialog_index = 0
+var player_near = false
 
 func _ready():
 	anim.play(\"idle\")
+	bubble.visible = false
 
-	speech_label.text = \"\"
-	speech_label.visible = false
-	speech_label.position = Vector2(0, -50)
-	add_child(speech_label)
-	
 	$InteractionArea.body_entered.connect(_on_body_entered)
 	$InteractionArea.body_exited.connect(_on_body_exited)
 
@@ -23,18 +28,26 @@ var can_interact = false
 
 func _on_body_entered(body):
 	if body.is_in_group(\"Player\"):  # Spieler muss in Gruppe \"player\" sein
+		player_near = true
 		can_interact = true
-		show_speech(\"I hate u\")
+		dialog_index = 0
+		bubble.visible = true
+		bubble_label.text = dialog[dialog_index]
 
 func _on_body_exited(body):
 	if body.is_in_group(\"Player\"):
+		player_near = false
+		bubble.visible = false
 		can_interact = false
 
-func show_speech(text: String):
-	speech_label.text = text
-	speech_label.visible = true
-	await get_tree().create_timer(2.0).timeout
-	speech_label.visible = false
+func _process(delta):
+	if player_near and Input.is_action_just_pressed(\"interaction_next_sentence\"):
+		dialog_index += 1
+		
+		if dialog_index < dialog.size():
+			bubble_label.text = dialog[dialog_index]
+		else:
+			bubble.visible = false
 "
 
 [sub_resource type="Animation" id="Animation_wcsue"]
@@ -78,6 +91,18 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6vsac"]
 size = Vector2(80, 80)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6vsac"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
 [node name="QuizMaster" type="Node2D" unique_id=590352954]
 position = Vector2(1052, 517)
 script = SubResource("GDScript_6vsac")
@@ -96,3 +121,33 @@ libraries/ = SubResource("AnimationLibrary_wcsue")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" unique_id=1657687269]
 position = Vector2(-1, -10)
 shape = SubResource("RectangleShape2D_6vsac")
+
+[node name="SpeechBubble" type="Control" parent="." unique_id=1341688260]
+z_index = 10
+layout_mode = 3
+anchors_preset = 0
+offset_left = -52.0
+offset_top = -90.0
+offset_right = 53.0
+offset_bottom = -50.0
+
+[node name="PanelContainer" type="PanelContainer" parent="SpeechBubble" unique_id=1716444848]
+custom_minimum_size = Vector2(220, 0)
+layout_mode = 0
+offset_right = 104.0
+offset_bottom = 39.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_6vsac")
+
+[node name="MarginContainer" type="MarginContainer" parent="SpeechBubble/PanelContainer" unique_id=1320924788]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 6
+
+[node name="Label" type="Label" parent="SpeechBubble/PanelContainer/MarginContainer" unique_id=2110196318]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_n5x2g")
+horizontal_alignment = 1
+autowrap_mode = 3
