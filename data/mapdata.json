@@ -1,0 +1,9 @@
+[
+	[
+		"res://Scenes/StartingRoom.tscn"
+	],
+	[
+		"res://Scenes/Rooms/Level1_1.tscn",
+		"res://Scenes/Rooms/Level1_1.tscn"
+	]
+]
