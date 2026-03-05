@@ -7,7 +7,7 @@ var current_location = [0,0]
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	$FadeOut.play_backwards("MainMenuFade")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -16,6 +16,8 @@ func _process(delta: float) -> void:
 
 
 func _on_new_game_pressed() -> void:
+	$FadeOut.play("MainMenuFade")
+	await $FadeOut.animation_finished
 	DirAccess.remove_absolute("res://data/mapdata.json")
 	DirAccess.remove_absolute("res://data/playerdata.json")
 	print(map[current_location[0]][current_location[1]])
@@ -23,6 +25,8 @@ func _on_new_game_pressed() -> void:
 
 
 func _on_load_game_pressed() -> void:
+	$FadeOut.play("MainMenuFade")
+	await $FadeOut.animation_finished
 	var mapFile = FileAccess.open(savedir+"mapdata.json",FileAccess.READ)
 	var playerFile = FileAccess.open(savedir+"playerdata.json",FileAccess.READ)
 	if FileAccess.file_exists(savedir+"mapdata.json"):
@@ -33,4 +37,6 @@ func _on_load_game_pressed() -> void:
 
 
 func _on_exit_pressed() -> void:
+	$FadeOut.play("MainMenuFade")
+	await $FadeOut.animation_finished
 	get_tree().quit()

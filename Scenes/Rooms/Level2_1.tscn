@@ -3,12 +3,13 @@
 [ext_resource type="Texture2D" uid="uid://crdkmyghcxjb4" path="res://Assets/Tilesheets/SpriteSheetMainBG_V2.png" id="1_7pvmm"]
 [ext_resource type="Texture2D" uid="uid://bwvceaqtt2vu8" path="res://Assets/Tilesheets/SpriteSheetBG_Wood.png" id="1_y1vek"]
 [ext_resource type="Texture2D" uid="uid://cvn1velas66yh" path="res://Assets/Wodden_Crate_Sprite.png" id="2_y1vek"]
-[ext_resource type="Script" uid="uid://xhlxuk4qmvq5" path="res://scripts/Map.gd" id="3_fjcer"]
+[ext_resource type="Script" path="res://scripts/Map.gd" id="3_fjcer"]
 [ext_resource type="Texture2D" uid="uid://e441vjj2o4wn" path="res://Assets/ArchAngelTest.png" id="3_vr06h"]
 [ext_resource type="PackedScene" uid="uid://ducrjhp71a7sn" path="res://Scenes/PlayerCharacter.tscn" id="5_fguq3"]
-[ext_resource type="PackedScene" path="res://Scenes/QuizMaster.tscn" id="6_fjcer"]
-[ext_resource type="Script" path="res://scripts/sub_viewportMiniMap.gd" id="7_bb4b7"]
+[ext_resource type="PackedScene" uid="uid://cxocak2txdkrx" path="res://Scenes/QuizMaster.tscn" id="6_fjcer"]
+[ext_resource type="Script" uid="uid://dnec5cviy5suy" path="res://scripts/sub_viewportMiniMap.gd" id="7_bb4b7"]
 [ext_resource type="Texture2D" uid="uid://jgi2xjcp7uka" path="res://Assets/MainFig-1.png.png" id="8_55v38"]
+[ext_resource type="PackedScene" uid="uid://c7w2caq00o6c5" path="res://Scenes/pause_menu.tscn" id="10_bb4b7"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_gfjgm"]
 tile_data = PackedInt32Array(0, 0, 0, 65536, 0, 0, 131072, 0, 0, 1, 0, 0, 65537, 0, 1, 131073, 0, 0, 2, 0, 0, 65538, 0, 0, 131074, 0, 0)
@@ -507,6 +508,10 @@ default_color = Color(0.47843137, 0.47843137, 0.47843137, 1)
 position = Vector2(128.00003, 128)
 scale = Vector2(0.84374857, 0.84374976)
 texture = ExtResource("8_55v38")
+
+[node name="PauseMenu2" type="CanvasLayer" parent="." unique_id=1970529079]
+
+[node name="PauseMenu" parent="PauseMenu2" unique_id=315113575 instance=ExtResource("10_bb4b7")]
 
 [connection signal="body_entered" from="Map/DoorOne" to="Map" method="_on_body_entered_left"]
 [connection signal="body_entered" from="Map/DoorTwo" to="Map" method="_on_body_entered_up"]
