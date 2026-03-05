@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://cxocak2txdkrx"]
+[gd_scene format=3 uid="uid://cs143sj823m0m"]
 
 [ext_resource type="Texture2D" uid="uid://b08noggrphrox" path="res://Assets/Char/Quizmaster.png" id="1_6vsac"]
 
@@ -79,6 +79,7 @@ _data = {
 size = Vector2(80, 80)
 
 [node name="QuizMaster" type="Node2D" unique_id=590352954]
+position = Vector2(1052, 517)
 script = SubResource("GDScript_6vsac")
 
 [node name="Visual" type="Node2D" parent="." unique_id=1610779047]
@@ -93,5 +94,5 @@ libraries/ = SubResource("AnimationLibrary_wcsue")
 [node name="InteractionArea" type="Area2D" parent="." unique_id=991117307]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" unique_id=1657687269]
-position = Vector2(-2, -14)
+position = Vector2(-1, -10)
 shape = SubResource("RectangleShape2D_6vsac")

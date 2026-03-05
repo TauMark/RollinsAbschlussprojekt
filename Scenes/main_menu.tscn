@@ -80,7 +80,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_1ehe0")
-startScene = "res://Scenes/Level1.tscn"
+startScene = "res://Scenes/StartingRoom.tscn"
 
 [node name="Panel" type="Panel" parent="." unique_id=370686319]
 layout_mode = 1

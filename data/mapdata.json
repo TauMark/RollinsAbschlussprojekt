@@ -1,0 +1,21 @@
+[
+	[
+		"res://Scenes/StartingRoom.tscn",
+		"res://Scenes/Rooms/Level1_4.tscn"
+	],
+	[
+		"res://Scenes/Rooms/Level1_4.tscn"
+	],
+	[
+		"res://Scenes/Rooms/Level1_4.tscn"
+	],
+	[
+		"res://Scenes/Rooms/Level1_1.tscn"
+	],
+	[
+		"res://Scenes/Rooms/Level1_2.tscn"
+	],
+	[
+		"res://Scenes/Rooms/Level2_1.tscn"
+	]
+]
