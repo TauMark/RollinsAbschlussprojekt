@@ -2,11 +2,11 @@
 
 [ext_resource type="Texture2D" uid="uid://crdkmyghcxjb4" path="res://Assets/Tilesheets/SpriteSheetMainBG_V2.png" id="1_s5hwd"]
 [ext_resource type="Texture2D" uid="uid://cvn1velas66yh" path="res://Assets/Wodden_Crate_Sprite.png" id="2_ix854"]
-[ext_resource type="Script" path="res://scripts/Map.gd" id="2_rx2yh"]
+[ext_resource type="Script" uid="uid://xhlxuk4qmvq5" path="res://scripts/Map.gd" id="2_rx2yh"]
 [ext_resource type="Texture2D" uid="uid://e441vjj2o4wn" path="res://Assets/ArchAngelTest.png" id="3_86pkl"]
 [ext_resource type="PackedScene" uid="uid://ducrjhp71a7sn" path="res://Scenes/PlayerCharacter.tscn" id="4_lqjnc"]
-[ext_resource type="PackedScene" uid="uid://cxocak2txdkrx" path="res://Scenes/QuizMaster.tscn" id="5_rx2yh"]
-[ext_resource type="Script" uid="uid://dnec5cviy5suy" path="res://scripts/sub_viewportMiniMap.gd" id="6_vtwwu"]
+[ext_resource type="PackedScene" uid="uid://cs143sj823m0m" path="res://Scenes/QuizMaster.tscn" id="5_rx2yh"]
+[ext_resource type="Script" path="res://scripts/sub_viewportMiniMap.gd" id="6_vtwwu"]
 [ext_resource type="Texture2D" uid="uid://jgi2xjcp7uka" path="res://Assets/MainFig-1.png.png" id="7_cs6ih"]
 [ext_resource type="PackedScene" uid="uid://c7w2caq00o6c5" path="res://Scenes/pause_menu.tscn" id="9_vtwwu"]
 
