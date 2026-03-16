@@ -1,14 +1,16 @@
 [gd_scene format=4 uid="uid://beln3cmjaq1vk"]
 
 [ext_resource type="Texture2D" uid="uid://crdkmyghcxjb4" path="res://Assets/Tilesheets/SpriteSheetMainBG_V2.png" id="1_331a3"]
-[ext_resource type="Script" path="res://scripts/Map.gd" id="2_6aol1"]
+[ext_resource type="Script" uid="uid://xhlxuk4qmvq5" path="res://scripts/Map.gd" id="2_6aol1"]
 [ext_resource type="Texture2D" uid="uid://cvn1velas66yh" path="res://Assets/Wodden_Crate_Sprite.png" id="2_fv7k0"]
 [ext_resource type="Texture2D" uid="uid://e441vjj2o4wn" path="res://Assets/ArchAngelTest.png" id="3_fv7k0"]
 [ext_resource type="PackedScene" uid="uid://ducrjhp71a7sn" path="res://Scenes/PlayerCharacter.tscn" id="4_kam1v"]
-[ext_resource type="PackedScene" uid="uid://cxocak2txdkrx" path="res://Scenes/QuizMaster.tscn" id="5_6aol1"]
+[ext_resource type="PackedScene" uid="uid://cs143sj823m0m" path="res://Scenes/QuizMaster.tscn" id="5_6aol1"]
 [ext_resource type="Script" uid="uid://dnec5cviy5suy" path="res://scripts/sub_viewportMiniMap.gd" id="6_l18sw"]
 [ext_resource type="Texture2D" uid="uid://jgi2xjcp7uka" path="res://Assets/MainFig-1.png.png" id="7_bpivf"]
 [ext_resource type="PackedScene" uid="uid://c7w2caq00o6c5" path="res://Scenes/pause_menu.tscn" id="9_l18sw"]
+[ext_resource type="PackedScene" uid="uid://dc423wu3621ht" path="res://Scenes/point.tscn" id="10_bpivf"]
+[ext_resource type="PackedScene" uid="uid://bh5tlsadcwcbx" path="res://Scenes/punkteHUD.tscn" id="11_o7v83"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_gfjgm"]
 tile_data = PackedInt32Array(0, 0, 0, 65536, 0, 0, 131072, 0, 0, 1, 0, 0, 65537, 0, 1, 131073, 0, 0, 2, 0, 0, 65538, 0, 0, 131074, 0, 0)
@@ -454,6 +456,29 @@ texture = ExtResource("7_bpivf")
 [node name="PauseMenu2" type="CanvasLayer" parent="." unique_id=1779290804]
 
 [node name="PauseMenu" parent="PauseMenu2" unique_id=315113575 instance=ExtResource("9_l18sw")]
+
+[node name="Point" parent="." unique_id=1701687768 instance=ExtResource("10_bpivf")]
+position = Vector2(1050, 568)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=52035753]
+
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=629006941]
+layout_mode = 3
+anchor_left = 0.02
+anchor_top = 0.035
+anchor_right = 0.04
+anchor_bottom = 0.06
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control" unique_id=2110212475]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/separation = 50
+
+[node name="Punkte" parent="CanvasLayer/Control/VBoxContainer" unique_id=2141144 instance=ExtResource("11_o7v83")]
+layout_mode = 2
 
 [connection signal="body_entered" from="Map/DoorOne" to="Map" method="_on_body_entered_left"]
 [connection signal="body_entered" from="Map/DoorTwo" to="Map" method="_on_body_entered_up"]
