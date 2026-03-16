@@ -10,22 +10,29 @@ var current_location = [0,0]
 
 
 func _ready() -> void:
-	var mapFile = FileAccess.open(savedir+"mapdata.json",FileAccess.READ)
-	var playerFile = FileAccess.open(savedir+"playerdata.json",FileAccess.READ)
-	if FileAccess.file_exists(savedir+"mapdata.json"):
+
+	# LOAD MAP
+	if FileAccess.file_exists(savedir + "mapdata.json"):
+		var mapFile = FileAccess.open(savedir + "mapdata.json", FileAccess.READ)
 		map = JSON.parse_string(mapFile.get_as_text())
+		mapFile.close()
 		print(map)
-		updateMap()
 	else:
 		updateMap()
-	if FileAccess.file_exists(savedir+"playerdata.json"):
-		current_location = JSON.parse_string(playerFile.get_as_text())
-		current_location[0] = int(current_location[0])
-		current_location[1] = int(current_location[1])
-		print(current_location)
-		updatePlayer()
-	else:
-		updatePlayer()
+
+	# LOAD PLAYER DATA
+	if FileAccess.file_exists(savedir + "playerdata.json"):
+		var playerFile = FileAccess.open(savedir + "playerdata.json", FileAccess.READ)
+		var data = JSON.parse_string(playerFile.get_as_text())
+		playerFile.close()
+
+		if typeof(data) == TYPE_DICTIONARY and data.has("current_location"):
+			current_location = data["current_location"]
+			current_location[0] = int(current_location[0])
+			current_location[1] = int(current_location[1])
+			print(current_location)
+
+	updatePlayer()
 	
 func updateMap():
 	var json = JSON.stringify(map,'\t');
@@ -34,10 +41,21 @@ func updateMap():
 	file.close()
 	
 func updatePlayer():
-	var json = JSON.stringify(current_location,'\t');
-	var file = FileAccess.open(savedir+"playerdata.json",FileAccess.WRITE)
-	file.store_string(json)
-	file.close()
+	var data = {}
+	
+	if FileAccess.file_exists(savedir + "playerdata.json"):
+		var file_r = FileAccess.open(savedir + "playerdata.json", FileAccess.READ)
+		data = JSON.parse_string(file_r.get_as_text())
+		file_r.close()
+		
+		if typeof(data) != TYPE_DICTIONARY:
+			data = {}
+	
+	data["current_location"] = current_location
+	
+	var file_w = FileAccess.open(savedir + "playerdata.json", FileAccess.WRITE)
+	file_w.store_string(JSON.stringify(data, "\t"))
+	file_w.close()
 
 
 func _on_door_body_entered_right(body: Node2D) -> void:

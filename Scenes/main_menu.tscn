@@ -36,7 +36,7 @@ shadow_size = 5
 
 [sub_resource type="Animation" id="Animation_1ehe0"]
 resource_name = "MainMenuFade"
-length = 0.3
+length = 0.33333334
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
