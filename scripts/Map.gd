@@ -73,8 +73,10 @@ func _on_body_entered_up(body: Node2D) -> void:
 		if current_location[0] != 0:
 			current_location[0] -= 1
 		if(map.size() - 1 >= current_location[0]):
+			print("adis")
 			get_tree().change_scene_to_file(map[current_location[0]][current_location[1]])
 		else:
+			print("test")
 			map.push_front([room])
 			get_tree().change_scene_to_file(room)
 		updateMap()
