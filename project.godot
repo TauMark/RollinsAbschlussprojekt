@@ -15,10 +15,21 @@ run/main_scene="uid://bdid662sq38jd"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Map="*uid://xhlxuk4qmvq5"
+Door="*uid://cdo0bjkx0h466"
+Room="*uid://bcuc456jwlyb1"
+
 [display]
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
+
+[global_group]
+
+Point=""
+player=""
 
 [input]
 
