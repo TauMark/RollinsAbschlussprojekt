@@ -10,7 +10,8 @@ script/source = "extends Node2D
 @onready var bubble = $SpeechBubble
 @onready var bubble_label = $SpeechBubble/PanelContainer/MarginContainer/Label
 
-var dialog = [\"Hello! Ready for a Quiz?\", \"I got some crazy questions\", \"Are you ready??\"]
+var dialog = [\"Hey! Press E to continue\"]
+@export var theme = \"\"
 var typing_speed = 0.05
 var waiting_for_input = false
 var advance_key = \"ui_accept\"
@@ -26,6 +27,48 @@ func _ready():
 
 var can_interact = false
 
+func _process(delta):
+	if player_near and Input.is_action_just_pressed(\"interaction_next_sentence\"):
+		setup_dialog()
+		
+		if dialog_index < dialog.size():
+			bubble.visible = true
+			bubble_label.text = dialog[dialog_index]
+			dialog_index += 1
+		else:
+			bubble.visible = false
+
+func setup_dialog():
+	var map_node = get_parent()
+	match theme:
+		\"start\":
+			dialog = [
+				\"Welcome to startingroom.\",
+				\"blablabalba\",
+				\"asdasdasdasdsa\",
+				\"fuuuuuuuuuuuuu\"
+			]
+			
+		\"Room1\":
+			dialog = [
+				\"Welcome to room 1\"
+			]
+		
+		\"Room2\":
+			dialog = [
+				\"Welcome to room 2\"
+			]
+			
+		\"Room3\":
+			dialog = [
+				\"Welcome to room 3\"
+			]
+			
+		\"Room4\":
+			dialog = [
+				\"Welcome to room 4\"
+			]
+
 func _on_body_entered(body):
 	if body.is_in_group(\"Player\"):  # Spieler muss in Gruppe \"player\" sein
 		player_near = true
@@ -39,15 +82,6 @@ func _on_body_exited(body):
 		player_near = false
 		bubble.visible = false
 		can_interact = false
-
-func _process(delta):
-	if player_near and Input.is_action_just_pressed(\"interaction_next_sentence\"):
-		dialog_index += 1
-		
-		if dialog_index < dialog.size():
-			bubble_label.text = dialog[dialog_index]
-		else:
-			bubble.visible = false
 "
 
 [sub_resource type="Animation" id="Animation_wcsue"]

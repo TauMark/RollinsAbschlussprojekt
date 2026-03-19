@@ -408,24 +408,37 @@ position = Vector2(962, 1055)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Map/DoorFour" unique_id=711943804]
 shape = SubResource("RectangleShape2D_d85wf")
 
-[node name="Deco" type="TileMapLayer" parent="." unique_id=759391610]
-tile_map_data = PackedByteArray("AAARAAsAAAAAAAAAAAARAAwAAAAAAAAAAAASAAsAAAAAAAAAAAASAAwAAAAAAAAAAAATAAsAAAAAAAAAAAATAAwAAAAAAAAAAAAUAAsAAAAAAAAAAAARABcAAAAAAAAAAAARABgAAAAAAAAAAAASABcAAAAAAAAAAAATABcAAAAAAAAAAAAUABcAAAAAAAAAAAAqABgAAAAAAAAAAAApABcAAAAAAAAAAAAqABcAAAAAAAAAAAAqAAoAAAAAAAAAAAAqAAsAAAAAAAAAAAApAAoAAAAAAAAAAAAoAAoAAAAAAAAAAAAoAAsAAAAAAAAAAAApAAkAAAAAAAAAAAAqAAkAAAAAAAAAAAA1AB0AAAAAAAAAAAA0AB4AAAAAAAAAAAA1AB4AAAAAAAAAAAA2AB0AAAAAAAAAAAAaAB4AAgAAAAAAAAAhAB4AAgAAAAAAAAA2AA4AAgAAAAAAAAA2ABUAAgAAAAAAAAAFAA4AAgAAAAAAAAAFABUAAgAAAAAAAAAaAAUAAgAAAAAAAAAhAAUAAgAAAAAAAAAZABIAAgAAAAAAAAAiABIAAgAAAAAAAAA=")
-tile_set = SubResource("TileSet_slnnj")
+[node name="Map2" parent="." unique_id=1912577358 instance=ExtResource("14_hap66")]
+position = Vector2(2, -1156)
 
-[node name="QuizMaster" parent="." unique_id=590352954 instance=ExtResource("4_ftgye")]
-position = Vector2(1227, 546)
+[node name="QuizMaster" parent="Map2" unique_id=590352954 instance=ExtResource("4_ftgye")]
+theme = "Room4"
 
 [node name="Map3" parent="." unique_id=877082601 instance=ExtResource("3_84d45")]
 position = Vector2(1922, 0)
 
-[node name="Map2" parent="." unique_id=1912577358 instance=ExtResource("14_hap66")]
-position = Vector2(2, -1156)
+[node name="QuizMaster" parent="Map3" unique_id=1877453021 instance=ExtResource("4_ftgye")]
+theme = "Room3"
+
+[node name="Map4" parent="." unique_id=1686568090 instance=ExtResource("4_tqj67")]
+position = Vector2(-1922, -2)
+
+[node name="QuizMaster" parent="Map4" unique_id=1691523543 instance=ExtResource("4_ftgye")]
+theme = "Room2"
 
 [node name="Map5" parent="." unique_id=330796290 instance=ExtResource("15_7hltm")]
 position = Vector2(2, 1153)
 
-[node name="Map4" parent="." unique_id=1686568090 instance=ExtResource("4_tqj67")]
-position = Vector2(-1922, -2)
+[node name="QuizMaster" parent="Map5" unique_id=491123641 instance=ExtResource("4_ftgye")]
+theme = "Room1"
+
+[node name="Deco" type="TileMapLayer" parent="." unique_id=759391610]
+tile_map_data = PackedByteArray("AAARAAsAAAAAAAAAAAARAAwAAAAAAAAAAAASAAsAAAAAAAAAAAASAAwAAAAAAAAAAAATAAsAAAAAAAAAAAATAAwAAAAAAAAAAAAUAAsAAAAAAAAAAAARABcAAAAAAAAAAAARABgAAAAAAAAAAAASABcAAAAAAAAAAAATABcAAAAAAAAAAAAUABcAAAAAAAAAAAAqABgAAAAAAAAAAAApABcAAAAAAAAAAAAqABcAAAAAAAAAAAAqAAoAAAAAAAAAAAAqAAsAAAAAAAAAAAApAAoAAAAAAAAAAAAoAAoAAAAAAAAAAAAoAAsAAAAAAAAAAAApAAkAAAAAAAAAAAAqAAkAAAAAAAAAAAA1AB0AAAAAAAAAAAA0AB4AAAAAAAAAAAA1AB4AAAAAAAAAAAA2AB0AAAAAAAAAAAAaAB4AAgAAAAAAAAAhAB4AAgAAAAAAAAA2AA4AAgAAAAAAAAA2ABUAAgAAAAAAAAAFAA4AAgAAAAAAAAAFABUAAgAAAAAAAAAaAAUAAgAAAAAAAAAhAAUAAgAAAAAAAAAZABIAAgAAAAAAAAAiABIAAgAAAAAAAAA=")
+tile_set = SubResource("TileSet_slnnj")
+
+[node name="QuizMaster" parent="." unique_id=1333227192 instance=ExtResource("4_ftgye")]
+position = Vector2(1227, 546)
+theme = "start"
 
 [node name="CharacterBody2D" parent="." unique_id=1813514298 instance=ExtResource("2_q12u6")]
 position = Vector2(960, 531)
