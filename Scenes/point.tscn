@@ -1,7 +1,7 @@
-[gd_scene format=3 uid="uid://dc423wu3621ht"]
+[gd_scene format=3 uid="uid://cy0jwiw0h31fb"]
 
-[ext_resource type="Script" uid="uid://ciwbvkk7dr0g0" path="res://scripts/point.gd" id="1_38k44"]
-[ext_resource type="Texture2D" uid="uid://colwd0f6e7lpm" path="res://Assets/Collectible/BlueCollectible.png" id="1_famcs"]
+[ext_resource type="Script" path="res://scripts/point.gd" id="1_38k44"]
+[ext_resource type="Texture2D" uid="uid://gcc3tgh2cu01" path="res://Assets/Collectible/GelberScheinCollectible.png" id="2_38k44"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_38k44"]
 radius = 19.0
@@ -13,6 +13,6 @@ script = ExtResource("1_38k44")
 shape = SubResource("CircleShape2D_38k44")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1696678487]
-texture = ExtResource("1_famcs")
+texture = ExtResource("2_38k44")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
