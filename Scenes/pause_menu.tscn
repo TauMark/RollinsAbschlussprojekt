@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c7w2caq00o6c5"]
 
-[ext_resource type="Script" uid="uid://d3sc8nenu6df6" path="res://scripts/pause_menu.gd" id="1_1och7"]
+[ext_resource type="Script" path="res://scripts/pause_menu.gd" id="1_1och7"]
 [ext_resource type="Shader" uid="uid://boxwu1kgxl68m" path="res://Assets/Shader/PauseMenu.gdshader" id="2_bpi0q"]
 [ext_resource type="FontFile" uid="uid://2ox1h183a2ww" path="res://Assets/Fonts/Qaroxe.ttf" id="3_vmyb1"]
 

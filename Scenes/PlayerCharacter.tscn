@@ -125,6 +125,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mdaju"]
 size = Vector2(19.5, 26)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_2getf"]
+radius = 16.0
+
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=1813514298 groups=["Player"]]
 script = ExtResource("1_5gnj7")
 
@@ -139,3 +142,10 @@ animation = &"idle"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1232789618]
 position = Vector2(0.25, -2)
 shape = SubResource("RectangleShape2D_mdaju")
+
+[node name="collecteble_pickup" type="Area2D" parent="." unique_id=339917439]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="collecteble_pickup" unique_id=1728435250]
+shape = SubResource("CircleShape2D_2getf")
+
+[connection signal="area_entered" from="collecteble_pickup" to="." method="_on_collecteble_pickup_area_entered"]
