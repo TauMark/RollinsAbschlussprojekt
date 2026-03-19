@@ -1,15 +1,11 @@
-[gd_scene format=4 uid="uid://bp1cdt7k4ctk8"]
+[gd_scene format=4 uid="uid://cf3qow175td1w"]
 
 [ext_resource type="Script" uid="uid://xhlxuk4qmvq5" path="res://scripts/Map.gd" id="1_nb2fn"]
 [ext_resource type="Texture2D" uid="uid://crdkmyghcxjb4" path="res://Assets/Tilesheets/SpriteSheetMainBG_V2.png" id="2_umdqs"]
 [ext_resource type="Texture2D" uid="uid://4k6xc62kjskt" path="res://Assets/Tilesheets/SpriteSheetBG_Sand.png" id="2_xwd13"]
 [ext_resource type="Texture2D" uid="uid://cvn1velas66yh" path="res://Assets/Wodden_Crate_Sprite.png" id="3_xwd13"]
 [ext_resource type="Texture2D" uid="uid://e441vjj2o4wn" path="res://Assets/ArchAngelTest.png" id="4_b6cds"]
-[ext_resource type="PackedScene" uid="uid://ducrjhp71a7sn" path="res://Scenes/PlayerCharacter.tscn" id="5_kgonc"]
 [ext_resource type="PackedScene" uid="uid://cs143sj823m0m" path="res://Scenes/QuizMaster.tscn" id="6_t01a5"]
-[ext_resource type="Script" path="res://scripts/sub_viewportMiniMap.gd" id="7_xata8"]
-[ext_resource type="Texture2D" uid="uid://jgi2xjcp7uka" path="res://Assets/MainFig-1.png.png" id="8_cyjry"]
-[ext_resource type="PackedScene" uid="uid://c7w2caq00o6c5" path="res://Scenes/pause_menu.tscn" id="9_8fsmj"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_gfjgm"]
 tile_data = PackedInt32Array(0, 0, 0, 65536, 0, 0, 131072, 0, 0, 1, 0, 0, 65537, 0, 1, 131073, 0, 0, 2, 0, 0, 65538, 0, 0, 131074, 0, 0)
@@ -727,51 +723,8 @@ shape = SubResource("RectangleShape2D_ysn8j")
 [node name="Deco" type="TileMapLayer" parent="." unique_id=1061734586]
 tile_set = SubResource("TileSet_hoxh3")
 
-[node name="CharacterBody2D" parent="." unique_id=1813514298 instance=ExtResource("5_kgonc")]
-position = Vector2(926, 553)
-
 [node name="QuizMaster" parent="." unique_id=590352954 instance=ExtResource("6_t01a5")]
 position = Vector2(1227, 546)
-
-[node name="MiniMap" type="CanvasLayer" parent="." unique_id=1860261053]
-
-[node name="SubViewportContainer" type="SubViewportContainer" parent="MiniMap" unique_id=1530428083]
-visible = false
-modulate = Color(1, 1, 1, 0.7529412)
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -256.0
-offset_bottom = 256.0
-grow_horizontal = 0
-size_flags_horizontal = 8
-metadata/_edit_use_anchors_ = true
-
-[node name="SubViewport" type="SubViewport" parent="MiniMap/SubViewportContainer" unique_id=1645035972]
-handle_input_locally = false
-size = Vector2i(256, 256)
-render_target_update_mode = 0
-script = ExtResource("7_xata8")
-
-[node name="Camera2D" type="Camera2D" parent="MiniMap/SubViewportContainer/SubViewport" unique_id=1862748912]
-zoom = Vector2(0.2, 0.2)
-
-[node name="Line2D" type="Line2D" parent="MiniMap/SubViewportContainer" unique_id=365285029]
-modulate = Color(0, 0, 0, 1)
-scale = Vector2(0.49812025, 0.5131034)
-points = PackedVector2Array(513.96985, -1.9698107, 513.9321, 498.9247, 0, 498.9247, 0.037736665, -1.9698107, 441.69818, -1.9698107)
-closed = true
-default_color = Color(0.47843137, 0.47843137, 0.47843137, 1)
-
-[node name="Sprite2D" type="Sprite2D" parent="MiniMap/SubViewportContainer" unique_id=1183712607]
-position = Vector2(128.00003, 128)
-scale = Vector2(0.84374857, 0.84374976)
-texture = ExtResource("8_cyjry")
-
-[node name="PauseMenu2" type="CanvasLayer" parent="." unique_id=754894697]
-visible = false
-
-[node name="PauseMenu" parent="PauseMenu2" unique_id=315113575 instance=ExtResource("9_8fsmj")]
 
 [connection signal="body_entered" from="TileMapLayer/DoorOne" to="." method="_on_body_entered_left"]
 [connection signal="body_entered" from="TileMapLayer/DoorTwo" to="." method="_on_body_entered_up"]

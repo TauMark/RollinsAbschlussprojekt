@@ -11,6 +11,16 @@ func get_input():
 	velocity = input_direction * speed
 	return input_direction
 
+func _ready() -> void:
+	var data = {}
+	
+	if FileAccess.file_exists(savedir + "playerdata.json"):
+		var file_r = FileAccess.open(savedir + "playerdata.json", FileAccess.READ)
+		data = JSON.parse_string(file_r.get_as_text())
+		file_r.close()
+		position = Vector2(data.x,data.y)
+	
+
 func _physics_process(delta):
 	move_and_slide()
 	

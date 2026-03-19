@@ -1,8 +1,12 @@
 extends Control
 
+var savedir = "res://data/"
+var player = ""
+
 func _ready() -> void:
 	hide()
 	$AnimationPlayer.play("RESET")
+	player = $"../.."
 
 func resume():
 	get_tree().paused = false
@@ -29,7 +33,22 @@ func _on_resume_pressed() -> void:
 
 
 func _on_save_game_pressed() -> void:
-	pass # Replace with Save Function bismilah
+	var data = {}
+	
+	if FileAccess.file_exists(savedir + "playerdata.json"):
+		var file_r = FileAccess.open(savedir + "playerdata.json", FileAccess.READ)
+		data = JSON.parse_string(file_r.get_as_text())
+		file_r.close()
+		
+		if typeof(data) != TYPE_DICTIONARY:
+			data = {}
+	
+	data["x"] = player.position.x
+	data["y"] = player.position.y
+	
+	var file_w = FileAccess.open(savedir + "playerdata.json", FileAccess.WRITE)
+	file_w.store_string(JSON.stringify(data, "\t"))
+	file_w.close()
 
 
 func _on_main_menu_pressed() -> void:

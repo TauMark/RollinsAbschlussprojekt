@@ -4,13 +4,12 @@
 [ext_resource type="Script" uid="uid://xhlxuk4qmvq5" path="res://scripts/Map.gd" id="2_joc8x"]
 [ext_resource type="PackedScene" uid="uid://ducrjhp71a7sn" path="res://Scenes/PlayerCharacter.tscn" id="2_q12u6"]
 [ext_resource type="Texture2D" uid="uid://cvn1velas66yh" path="res://Assets/Wodden_Crate_Sprite.png" id="3_6n3lv"]
+[ext_resource type="PackedScene" uid="uid://cyv7ff17rio5l" path="res://Scenes/Rooms/Level1_3.tscn" id="3_84d45"]
 [ext_resource type="PackedScene" uid="uid://cs143sj823m0m" path="res://Scenes/QuizMaster.tscn" id="4_ftgye"]
-[ext_resource type="Script" uid="uid://dnec5cviy5suy" path="res://scripts/sub_viewportMiniMap.gd" id="4_jghel"]
+[ext_resource type="PackedScene" uid="uid://b6ai4f0464krq" path="res://Scenes/Rooms/Level1_2.tscn" id="4_tqj67"]
 [ext_resource type="Texture2D" uid="uid://e441vjj2o4wn" path="res://Assets/ArchAngelTest.png" id="4_wyx0u"]
-[ext_resource type="Texture2D" uid="uid://jgi2xjcp7uka" path="res://Assets/MainFig-1.png.png" id="5_slnnj"]
-[ext_resource type="PackedScene" uid="uid://c7w2caq00o6c5" path="res://Scenes/pause_menu.tscn" id="9_wyx0u"]
-[ext_resource type="PackedScene" uid="uid://dc423wu3621ht" path="res://Scenes/point.tscn" id="10_qidaq"]
-[ext_resource type="PackedScene" uid="uid://bh5tlsadcwcbx" path="res://Scenes/punkteHUD.tscn" id="11_ib551"]
+[ext_resource type="PackedScene" uid="uid://dt2nqngfilqwm" path="res://Scenes/Rooms/Level1_1.tscn" id="14_hap66"]
+[ext_resource type="PackedScene" uid="uid://beln3cmjaq1vk" path="res://Scenes/Rooms/Level1_4.tscn" id="15_7hltm"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_gfjgm"]
 tile_data = PackedInt32Array(0, 0, 0, 65536, 0, 0, 131072, 0, 0, 1, 0, 0, 65537, 0, 1, 131073, 0, 0, 2, 0, 0, 65538, 0, 0, 131074, 0, 0)
@@ -413,78 +412,23 @@ shape = SubResource("RectangleShape2D_d85wf")
 tile_map_data = PackedByteArray("AAARAAsAAAAAAAAAAAARAAwAAAAAAAAAAAASAAsAAAAAAAAAAAASAAwAAAAAAAAAAAATAAsAAAAAAAAAAAATAAwAAAAAAAAAAAAUAAsAAAAAAAAAAAARABcAAAAAAAAAAAARABgAAAAAAAAAAAASABcAAAAAAAAAAAATABcAAAAAAAAAAAAUABcAAAAAAAAAAAAqABgAAAAAAAAAAAApABcAAAAAAAAAAAAqABcAAAAAAAAAAAAqAAoAAAAAAAAAAAAqAAsAAAAAAAAAAAApAAoAAAAAAAAAAAAoAAoAAAAAAAAAAAAoAAsAAAAAAAAAAAApAAkAAAAAAAAAAAAqAAkAAAAAAAAAAAA1AB0AAAAAAAAAAAA0AB4AAAAAAAAAAAA1AB4AAAAAAAAAAAA2AB0AAAAAAAAAAAAaAB4AAgAAAAAAAAAhAB4AAgAAAAAAAAA2AA4AAgAAAAAAAAA2ABUAAgAAAAAAAAAFAA4AAgAAAAAAAAAFABUAAgAAAAAAAAAaAAUAAgAAAAAAAAAhAAUAAgAAAAAAAAAZABIAAgAAAAAAAAAiABIAAgAAAAAAAAA=")
 tile_set = SubResource("TileSet_slnnj")
 
-[node name="CharacterBody2D" parent="." unique_id=1813514298 instance=ExtResource("2_q12u6")]
-position = Vector2(960, 531)
-
 [node name="QuizMaster" parent="." unique_id=590352954 instance=ExtResource("4_ftgye")]
 position = Vector2(1227, 546)
 
-[node name="MiniMap" type="CanvasLayer" parent="." unique_id=1825406628]
+[node name="Map3" parent="." unique_id=877082601 instance=ExtResource("3_84d45")]
+position = Vector2(1922, 0)
 
-[node name="SubViewportContainer" type="SubViewportContainer" parent="MiniMap" unique_id=803758838]
-modulate = Color(1, 1, 1, 0.7529412)
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -256.0
-offset_bottom = 256.0
-grow_horizontal = 0
-size_flags_horizontal = 8
-metadata/_edit_use_anchors_ = true
+[node name="Map2" parent="." unique_id=1912577358 instance=ExtResource("14_hap66")]
+position = Vector2(2, -1156)
 
-[node name="SubViewport" type="SubViewport" parent="MiniMap/SubViewportContainer" unique_id=1736904033]
-handle_input_locally = false
-size = Vector2i(256, 256)
-render_target_update_mode = 4
-script = ExtResource("4_jghel")
+[node name="Map5" parent="." unique_id=330796290 instance=ExtResource("15_7hltm")]
+position = Vector2(2, 1153)
 
-[node name="Camera2D" type="Camera2D" parent="MiniMap/SubViewportContainer/SubViewport" unique_id=1876785353]
-zoom = Vector2(0.2, 0.2)
+[node name="Map4" parent="." unique_id=1686568090 instance=ExtResource("4_tqj67")]
+position = Vector2(-1922, -2)
 
-[node name="Line2D" type="Line2D" parent="MiniMap/SubViewportContainer" unique_id=1972554614]
-modulate = Color(0, 0, 0, 1)
-scale = Vector2(0.49812025, 0.5131034)
-points = PackedVector2Array(513.96985, -1.9698107, 513.9321, 498.9247, 0, 498.9247, 0.037736665, -1.9698107, 441.69818, -1.9698107)
-closed = true
-default_color = Color(0.47843137, 0.47843137, 0.47843137, 1)
-
-[node name="Sprite2D" type="Sprite2D" parent="MiniMap/SubViewportContainer" unique_id=1505895009]
-position = Vector2(128.00003, 128)
-scale = Vector2(0.84374857, 0.84374976)
-texture = ExtResource("5_slnnj")
-
-[node name="PauseMenu2" type="CanvasLayer" parent="." unique_id=924730009]
-
-[node name="PauseMenu" parent="PauseMenu2" unique_id=2143076164 instance=ExtResource("9_wyx0u")]
-
-[node name="Point" parent="." unique_id=1701687768 instance=ExtResource("10_qidaq")]
-position = Vector2(867, 480)
-
-[node name="Point2" parent="." unique_id=2058367175 instance=ExtResource("10_qidaq")]
-position = Vector2(961, 461)
-
-[node name="Point3" parent="." unique_id=2097304872 instance=ExtResource("10_qidaq")]
-position = Vector2(1056, 490)
-
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=35517450]
-
-[node name="Control" type="Control" parent="CanvasLayer" unique_id=1400048896]
-layout_mode = 3
-anchor_left = 0.02
-anchor_top = 0.035
-anchor_right = 0.04
-anchor_bottom = 0.06
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control" unique_id=1164833495]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-theme_override_constants/separation = 50
-
-[node name="Punkte" parent="CanvasLayer/Control/VBoxContainer" unique_id=2141144 instance=ExtResource("11_ib551")]
-layout_mode = 2
+[node name="CharacterBody2D" parent="." unique_id=1813514298 instance=ExtResource("2_q12u6")]
+position = Vector2(960, 531)
 
 [connection signal="body_entered" from="Map/DoorOne" to="." method="_on_body_entered_left"]
 [connection signal="body_entered" from="Map/DoorTwo" to="." method="_on_body_entered_up"]

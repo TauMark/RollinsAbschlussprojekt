@@ -3,6 +3,11 @@
 [ext_resource type="Script" uid="uid://dv5v1rv06hu32" path="res://scripts/Movement.gd" id="1_5gnj7"]
 [ext_resource type="Texture2D" uid="uid://3y2vcaiff56v" path="res://Assets/Char/MainFig_Idle.png" id="2_2getf"]
 [ext_resource type="Texture2D" uid="uid://djh1rm7cdvgkf" path="res://Assets/Char/MainFig_Walking.png" id="3_mdaju"]
+[ext_resource type="Script" uid="uid://dnec5cviy5suy" path="res://scripts/sub_viewportMiniMap.gd" id="4_k5f8r"]
+[ext_resource type="Texture2D" uid="uid://jgi2xjcp7uka" path="res://Assets/MainFig-1.png.png" id="5_cl0yw"]
+[ext_resource type="PackedScene" uid="uid://c7w2caq00o6c5" path="res://Scenes/pause_menu.tscn" id="6_vjvuw"]
+[ext_resource type="PackedScene" uid="uid://dc423wu3621ht" path="res://Scenes/point.tscn" id="7_uvrlg"]
+[ext_resource type="PackedScene" uid="uid://bh5tlsadcwcbx" path="res://Scenes/punkteHUD.tscn" id="8_fkgr2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2getf"]
 atlas = ExtResource("2_2getf")
@@ -147,5 +152,73 @@ shape = SubResource("RectangleShape2D_mdaju")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="collecteble_pickup" unique_id=1728435250]
 shape = SubResource("CircleShape2D_2getf")
+
+[node name="MiniMap" type="CanvasLayer" parent="." unique_id=1157409965]
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="MiniMap" unique_id=861945805]
+modulate = Color(1, 1, 1, 0.7529412)
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -256.0
+offset_bottom = 256.0
+grow_horizontal = 0
+size_flags_horizontal = 8
+metadata/_edit_use_anchors_ = true
+
+[node name="SubViewport" type="SubViewport" parent="MiniMap/SubViewportContainer" unique_id=913500172]
+handle_input_locally = false
+size = Vector2i(256, 256)
+render_target_update_mode = 4
+script = ExtResource("4_k5f8r")
+
+[node name="Camera2D" type="Camera2D" parent="MiniMap/SubViewportContainer/SubViewport" unique_id=237142343]
+zoom = Vector2(0.2, 0.2)
+
+[node name="Line2D" type="Line2D" parent="MiniMap/SubViewportContainer" unique_id=507181999]
+modulate = Color(0, 0, 0, 1)
+scale = Vector2(0.49812025, 0.5131034)
+points = PackedVector2Array(513.96985, -1.9698107, 513.9321, 498.9247, 0, 498.9247, 0.037736665, -1.9698107, 441.69818, -1.9698107)
+closed = true
+default_color = Color(0.47843137, 0.47843137, 0.47843137, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="MiniMap/SubViewportContainer" unique_id=1528353190]
+position = Vector2(128.00003, 128)
+scale = Vector2(0.84374857, 0.84374976)
+texture = ExtResource("5_cl0yw")
+
+[node name="PauseMenu2" type="CanvasLayer" parent="." unique_id=93273042]
+
+[node name="PauseMenu" parent="PauseMenu2" unique_id=315113575 instance=ExtResource("6_vjvuw")]
+metadata/_edit_use_anchors_ = true
+
+[node name="Point" parent="." unique_id=1701687768 instance=ExtResource("7_uvrlg")]
+position = Vector2(867, 480)
+
+[node name="Point2" parent="." unique_id=1438711955 instance=ExtResource("7_uvrlg")]
+position = Vector2(961, 461)
+
+[node name="Point3" parent="." unique_id=709733504 instance=ExtResource("7_uvrlg")]
+position = Vector2(1056, 490)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1851102199]
+
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=1314094060]
+layout_mode = 3
+anchor_left = 0.02
+anchor_top = 0.035
+anchor_right = 0.04
+anchor_bottom = 0.06
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control" unique_id=1483313687]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/separation = 50
+
+[node name="Punkte" parent="CanvasLayer/Control/VBoxContainer" unique_id=2141144 instance=ExtResource("8_fkgr2")]
+layout_mode = 2
 
 [connection signal="area_entered" from="collecteble_pickup" to="." method="_on_collecteble_pickup_area_entered"]
