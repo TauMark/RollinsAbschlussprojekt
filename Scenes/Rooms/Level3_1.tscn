@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cvn1velas66yh" path="res://Assets/Wodden_Crate_Sprite.png" id="3_xwd13"]
 [ext_resource type="Texture2D" uid="uid://e441vjj2o4wn" path="res://Assets/ArchAngelTest.png" id="4_b6cds"]
 [ext_resource type="PackedScene" uid="uid://cs143sj823m0m" path="res://Scenes/QuizMaster.tscn" id="6_t01a5"]
+[ext_resource type="Texture2D" uid="uid://jlbss22clhor" path="res://Assets/confetti.png" id="7_fktv7"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_gfjgm"]
 tile_data = PackedInt32Array(0, 0, 0, 65536, 0, 0, 131072, 0, 0, 1, 0, 0, 65537, 0, 1, 131073, 0, 0, 2, 0, 0, 65538, 0, 0, 131074, 0, 0)
@@ -687,6 +688,56 @@ tile_size = Vector2i(32, 32)
 sources/0 = SubResource("TileSetAtlasSource_627kl")
 sources/2 = SubResource("TileSetAtlasSource_7rdy2")
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_onjam"]
+particles_animation = true
+particles_anim_h_frames = 2
+particles_anim_v_frames = 1
+particles_anim_loop = true
+
+[sub_resource type="Gradient" id="Gradient_nb2fn"]
+offsets = PackedFloat32Array(0, 0.24603175, 0.4920635, 0.6825397, 0.8968254)
+colors = PackedColorArray(0.9607843, 0.9019608, 0.7294118, 1, 0.6745098, 0.9490196, 0.7882353, 1, 0.9843137, 0.69411767, 0.827451, 1, 0.5019608, 0.5764706, 0.94509804, 1, 0.44705883, 0.8666667, 0.96862745, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_umdqs"]
+gradient = SubResource("Gradient_nb2fn")
+
+[sub_resource type="Curve" id="Curve_xwd13"]
+_limits = [0.0, 1.5, 0.0, 1.0]
+_data = [Vector2(0, 1.0955057), 0.0, 0.0, 0, 0, Vector2(0.26315787, 0.8426966), 0.0, 0.0, 0, 0, Vector2(0.7631579, 1.264045), 0.038815115, 0.038815115, 0, 0, Vector2(0.9934211, 0.9943821), 0.0, 0.0, 0, 0]
+point_count = 4
+metadata/_snap_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_b6cds"]
+curve = SubResource("Curve_xwd13")
+
+[sub_resource type="Curve" id="Curve_kgonc"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.73684204, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.6853932), -2.0960155, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_t01a5"]
+curve = SubResource("Curve_kgonc")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_xata8"]
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+initial_velocity_min = 130.0
+initial_velocity_max = 160.0
+angular_velocity_min = -180.00002
+angular_velocity_max = 179.99998
+gravity = Vector3(0, 75, 0)
+linear_accel_min = 9.999997
+linear_accel_max = 29.999996
+damping_min = 74.0
+damping_max = 78.0
+damping_curve = SubResource("CurveTexture_b6cds")
+scale_min = 0.25
+scale_max = 0.55
+scale_curve = SubResource("CurveTexture_t01a5")
+color_initial_ramp = SubResource("GradientTexture1D_umdqs")
+anim_speed_min = 2.0
+anim_speed_max = 5.0
+anim_offset_max = 1.0
+
 [node name="Map" type="Node2D" unique_id=1586575300]
 script = ExtResource("1_nb2fn")
 
@@ -725,6 +776,29 @@ tile_set = SubResource("TileSet_hoxh3")
 
 [node name="QuizMaster" parent="." unique_id=590352954 instance=ExtResource("6_t01a5")]
 position = Vector2(1227, 546)
+
+[node name="Control" type="Control" parent="QuizMaster" unique_id=1399496846]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 3
+anchors_preset = 0
+offset_left = -34.00006
+offset_top = -31.0
+offset_right = 166.0
+offset_bottom = 69.0
+scale = Vector2(0.31179538, 0.6075064)
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="QuizMaster/Control" unique_id=1303067646]
+material = SubResource("CanvasItemMaterial_onjam")
+position = Vector2(102, 59)
+rotation = -0.009727001
+scale = Vector2(2, 2)
+emitting = false
+amount = 200
+texture = ExtResource("7_fktv7")
+lifetime = 10.0
+one_shot = true
+explosiveness = 0.97
+process_material = SubResource("ParticleProcessMaterial_xata8")
 
 [connection signal="body_entered" from="TileMapLayer/DoorOne" to="." method="_on_body_entered_left"]
 [connection signal="body_entered" from="TileMapLayer/DoorTwo" to="." method="_on_body_entered_up"]

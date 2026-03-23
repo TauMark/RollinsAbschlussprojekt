@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://cvn1velas66yh" path="res://Assets/Wodden_Crate_Sprite.png" id="2_fv7k0"]
 [ext_resource type="Texture2D" uid="uid://e441vjj2o4wn" path="res://Assets/ArchAngelTest.png" id="3_fv7k0"]
 [ext_resource type="PackedScene" uid="uid://cs143sj823m0m" path="res://Scenes/QuizMaster.tscn" id="6_8xfm8"]
-[ext_resource type="PackedScene" uid="uid://cy0jwiw0h31fb" path="res://Scenes/point.tscn" id="10_bpivf"]
+[ext_resource type="Texture2D" uid="uid://jlbss22clhor" path="res://Assets/confetti.png" id="6_kam1v"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_gfjgm"]
 tile_data = PackedInt32Array(0, 0, 0, 65536, 0, 0, 131072, 0, 0, 1, 0, 0, 65537, 0, 1, 131073, 0, 0, 2, 0, 0, 65538, 0, 0, 131074, 0, 0)
@@ -359,6 +359,56 @@ tile_size = Vector2i(32, 32)
 sources/0 = SubResource("TileSetAtlasSource_ms0wi")
 sources/1 = SubResource("TileSetAtlasSource_4w2qb")
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_6aol1"]
+particles_animation = true
+particles_anim_h_frames = 2
+particles_anim_v_frames = 1
+particles_anim_loop = true
+
+[sub_resource type="Gradient" id="Gradient_l18sw"]
+offsets = PackedFloat32Array(0, 0.24603175, 0.4920635, 0.6825397, 0.8968254)
+colors = PackedColorArray(0.9607843, 0.9019608, 0.7294118, 1, 0.6745098, 0.9490196, 0.7882353, 1, 0.9843137, 0.69411767, 0.827451, 1, 0.5019608, 0.5764706, 0.94509804, 1, 0.44705883, 0.8666667, 0.96862745, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_bpivf"]
+gradient = SubResource("Gradient_l18sw")
+
+[sub_resource type="Curve" id="Curve_o7v83"]
+_limits = [0.0, 1.5, 0.0, 1.0]
+_data = [Vector2(0, 1.0955057), 0.0, 0.0, 0, 0, Vector2(0.26315787, 0.8426966), 0.0, 0.0, 0, 0, Vector2(0.7631579, 1.264045), 0.038815115, 0.038815115, 0, 0, Vector2(0.9934211, 0.9943821), 0.0, 0.0, 0, 0]
+point_count = 4
+metadata/_snap_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_632ax"]
+curve = SubResource("Curve_o7v83")
+
+[sub_resource type="Curve" id="Curve_joa1g"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.73684204, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.6853932), -2.0960155, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_lj8fr"]
+curve = SubResource("Curve_joa1g")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_pa1qf"]
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+initial_velocity_min = 130.0
+initial_velocity_max = 160.0
+angular_velocity_min = -180.00002
+angular_velocity_max = 179.99998
+gravity = Vector3(0, 75, 0)
+linear_accel_min = 9.999997
+linear_accel_max = 29.999996
+damping_min = 74.0
+damping_max = 78.0
+damping_curve = SubResource("CurveTexture_632ax")
+scale_min = 0.25
+scale_max = 0.55
+scale_curve = SubResource("CurveTexture_lj8fr")
+color_initial_ramp = SubResource("GradientTexture1D_bpivf")
+anim_speed_min = 2.0
+anim_speed_max = 5.0
+anim_offset_max = 1.0
+
 [node name="Map" type="Node2D" unique_id=1586575300]
 
 [node name="Map" type="TileMapLayer" parent="." unique_id=1516116214]
@@ -371,9 +421,29 @@ script = ExtResource("2_6aol1")
 tile_map_data = PackedByteArray("AAAQAAoAAAAAAAAAAAAQAAsAAAAAAAAAAAARAAsAAAAAAAAAAAARAAoAAAAAAAAAAAASAAsAAAAAAAAAAAAaABQAAAAAAAAAAAAbABQAAAAAAAAAAAAcABQAAAAAAAAAAAAeABUAAAAAAAAAAAAdABUAAAAAAAAAAAAcABUAAAAAAAAAAAAbABUAAAAAAAAAAAAaABUAAAAAAAAAAAAnABwAAAAAAAAAAAAmABwAAAAAAAAAAAAmAB0AAAAAAAAAAAAnAB0AAAAAAAAAAAAxAA4AAAAAAAAAAAAxAA8AAAAAAAAAAAAyAA8AAAAAAAAAAAAyAA0AAAAAAAAAAAAxAA0AAAAAAAAAAAAnAAMAAAAAAAAAAAAoAAMAAAAAAAAAAAAoAAQAAAAAAAAAAAApAAQAAAAAAAAAAAApAAUAAAAAAAAAAAAbAAQAAQAAAAAAAAAgAAQAAQAAAAAAAAA3AA8AAQAAAAAAAAAbAB8AAQAAAAAAAAAgAB8AAQAAAAAAAAAEAA8AAQAAAAAAAAA=")
 tile_set = SubResource("TileSet_5awjf")
 
-[node name="Point" parent="." unique_id=1701687768 instance=ExtResource("10_bpivf")]
-position = Vector2(1050, 568)
-
 [node name="QuizMaster" parent="." unique_id=590352954 instance=ExtResource("6_8xfm8")]
 position = Vector2(1024, 581)
 theme = "Room4"
+
+[node name="Control" type="Control" parent="QuizMaster" unique_id=689349323]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 3
+anchors_preset = 0
+offset_left = -34.00006
+offset_top = -31.0
+offset_right = 166.0
+offset_bottom = 69.0
+scale = Vector2(0.31179538, 0.6075064)
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="QuizMaster/Control" unique_id=622055125]
+material = SubResource("CanvasItemMaterial_6aol1")
+position = Vector2(102, 59)
+rotation = -0.009727001
+scale = Vector2(2, 2)
+emitting = false
+amount = 200
+texture = ExtResource("6_kam1v")
+lifetime = 10.0
+one_shot = true
+explosiveness = 0.97
+process_material = SubResource("ParticleProcessMaterial_pa1qf")

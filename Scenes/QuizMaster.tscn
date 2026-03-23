@@ -169,6 +169,7 @@ func _on_answer_pressed(index: int):
 
 	if correct:
 		_award_points(current_question.get(\"points\", 1))
+		play_confetti()
 
 	await get_tree().create_timer(2.5).timeout
 	_close_quiz()
@@ -249,6 +250,15 @@ func _on_body_exited(body):
 		bubble.visible = false
 		if quiz_active:
 			_close_quiz()
+			
+
+@onready var confetti = $Control/GPUParticles2D
+		
+		
+func play_confetti():
+	confetti.emitting = true
+	await get_tree().create_timer(2.0).timeout
+	confetti.emitting = false
 "
 
 [sub_resource type="Animation" id="Animation_wcsue"]
@@ -376,22 +386,31 @@ scale = Vector2(0.33632657, 0.43265274)
 
 [node name="QuestionLabel" type="Label" parent="QuizPanel/VBox" unique_id=232984800]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_n5x2g")
+autowrap_mode = 3
 
 [node name="BtnA" type="Button" parent="QuizPanel/VBox" unique_id=20801376]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_n5x2g")
 
 [node name="BtnB" type="Button" parent="QuizPanel/VBox" unique_id=1947063810]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_n5x2g")
 
 [node name="BtnC" type="Button" parent="QuizPanel/VBox" unique_id=591139328]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_n5x2g")
 
 [node name="BtnD" type="Button" parent="QuizPanel/VBox" unique_id=1398947598]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_n5x2g")
 
-[node name="Feedbacklabel" type="Label" parent="QuizPanel/VBox" unique_id=1269470610]
+[node name="FeedbackLabel" type="Label" parent="QuizPanel/VBox" unique_id=1269470610]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_n5x2g")
+theme_override_font_sizes/font_size = 32
+autowrap_mode = 3
