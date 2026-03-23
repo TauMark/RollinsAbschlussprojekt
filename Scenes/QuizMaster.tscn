@@ -6,82 +6,249 @@
 [sub_resource type="GDScript" id="GDScript_6vsac"]
 script/source = "extends Node2D
 
-@onready var anim = $Visual/AnimationPlayer
-@onready var bubble = $SpeechBubble
-@onready var bubble_label = $SpeechBubble/PanelContainer/MarginContainer/Label
+# ── Referenzen ──────────────────────────────────────────────────────────────
+@onready var anim            = $Visual/AnimationPlayer
+@onready var bubble          = $SpeechBubble
+@onready var bubble_label    = $SpeechBubble/PanelContainer/MarginContainer/Label
 
-var dialog = [\"Hey! Press E to continue\"]
+# Quiz-UI – wird zur Laufzeit per get_node_or_null gesucht (crash-sicher)
+var quiz_panel      : Control  = null
+var question_label  : Label    = null
+var answer_buttons  : Array    = []
+var feedback_label  : Label    = null
+
+# ── Einstellungen ────────────────────────────────────────────────────────────
 @export var theme = \"\"
-var typing_speed = 0.05
-var waiting_for_input = false
-var advance_key = \"ui_accept\"
-var dialog_index = 0
-var player_near = false
 
+const ROOM_CATEGORY_MAP = {
+	\"Room1\": \"Wirtschaft\",
+	\"Room2\": \"Programmierung Pseudocode\",
+	\"Room3\": \"Datenbank - SQL\",
+	\"Room4\": \"UML\",
+}
+
+const QUESTIONS_PATH = \"res://data/questions.json\"
+
+# ── Zustand ──────────────────────────────────────────────────────────────────
+var all_questions    : Array      = []
+var current_question : Dictionary = {}
+
+var player_near  = false
+var can_interact = false
+var quiz_active  = false
+
+var dialog       = [\"Hey! Drücke E um fortzufahren\"]
+var dialog_index = 0
+
+# ── _ready ───────────────────────────────────────────────────────────────────
 func _ready():
 	anim.play(\"idle\")
 	bubble.visible = false
 
+	_bind_quiz_ui()
+	_load_questions()
+
 	$InteractionArea.body_entered.connect(_on_body_entered)
 	$InteractionArea.body_exited.connect(_on_body_exited)
 
-var can_interact = false
+# ── Quiz-UI per get_node_or_null binden ───────────────────────────────────────
+func _bind_quiz_ui():
+	quiz_panel     = get_node_or_null(\"QuizPanel\")
+	question_label = get_node_or_null(\"QuizPanel/VBox/QuestionLabel\")
+	feedback_label = get_node_or_null(\"QuizPanel/VBox/FeedbackLabel\")
 
-func _process(delta):
-	if player_near and Input.is_action_just_pressed(\"interaction_next_sentence\"):
-		setup_dialog()
-		
-		if dialog_index < dialog.size():
-			bubble.visible = true
-			bubble_label.text = dialog[dialog_index]
-			dialog_index += 1
+	answer_buttons.clear()
+	for btn_name in [\"BtnA\", \"BtnB\", \"BtnC\", \"BtnD\"]:
+		var btn = get_node_or_null(\"QuizPanel/VBox/\" + btn_name)
+		answer_buttons.append(btn)   # kann null sein, wird unten geprüft
+
+	# Debug: zeigt fehlende Nodes in der Godot-Konsole
+	if quiz_panel == null:
+		push_warning(\"Quizmaster: 'QuizPanel' nicht gefunden. Quiz deaktiviert.\")
+	if question_label == null:
+		push_warning(\"Quizmaster: 'QuizPanel/VBox/QuestionLabel' nicht gefunden.\")
+	if feedback_label == null:
+		push_warning(\"Quizmaster: 'QuizPanel/VBox/FeedbackLabel' nicht gefunden.\")
+	for i in answer_buttons.size():
+		if answer_buttons[i] == null:
+			push_warning(\"Quizmaster: Button %s nicht gefunden.\" % [\"BtnA\",\"BtnB\",\"BtnC\",\"BtnD\"][i])
+
+	# Buttons verbinden (nur wenn vorhanden)
+	for i in answer_buttons.size():
+		if answer_buttons[i] != null:
+			answer_buttons[i].pressed.connect(_on_answer_pressed.bind(i))
+
+	# Panel verstecken (nur wenn vorhanden)
+	if quiz_panel != null:
+		quiz_panel.visible = false
+	if feedback_label != null:
+		feedback_label.visible = false
+
+# ── Fragen laden ─────────────────────────────────────────────────────────────
+func _load_questions():
+	if not FileAccess.file_exists(QUESTIONS_PATH):
+		push_error(\"Quizmaster: questions.json nicht gefunden unter \" + QUESTIONS_PATH)
+		return
+	var file   = FileAccess.open(QUESTIONS_PATH, FileAccess.READ)
+	var parsed = JSON.parse_string(file.get_as_text())
+	file.close()
+	if typeof(parsed) == TYPE_ARRAY:
+		all_questions = parsed
+	else:
+		push_error(\"Quizmaster: JSON konnte nicht geparst werden.\")
+
+# ── Zufällige Frage für Kategorie holen ──────────────────────────────────────
+func _get_random_question(category: String) -> Dictionary:
+	var pool: Array = []
+	for q in all_questions:
+		if q.get(\"category\", \"\") == category:
+			pool.append(q)
+	if pool.is_empty():
+		return {}
+	pool.shuffle()
+	return pool[0]
+
+# ── Quiz starten ─────────────────────────────────────────────────────────────
+func _start_quiz():
+	if quiz_panel == null or question_label == null:
+		push_warning(\"Quizmaster: QuizPanel fehlt – Quiz kann nicht gestartet werden.\")
+		return
+
+	if not ROOM_CATEGORY_MAP.has(theme):
+		return
+
+	var category = ROOM_CATEGORY_MAP[theme]
+	current_question = _get_random_question(category)
+	if current_question.is_empty():
+		push_warning(\"Quizmaster: Keine Fragen für Kategorie '\" + category + \"' gefunden.\")
+		return
+
+	bubble.visible         = false
+	quiz_panel.visible     = true
+	quiz_active            = true
+	if feedback_label != null:
+		feedback_label.visible = false
+
+	question_label.text = current_question.get(\"question\", \"???\")
+
+	var answers: Array = current_question.get(\"answers\", [])
+	for i in answer_buttons.size():
+		var btn = answer_buttons[i]
+		if btn == null:
+			continue
+		if i < answers.size():
+			btn.text     = answers[i].get(\"label\", \"\") + \") \" + answers[i].get(\"text\", \"\")
+			btn.visible  = true
+			btn.disabled = false
 		else:
-			bubble.visible = false
+			btn.visible = false
 
-func setup_dialog():
-	var map_node = get_parent()
+# ── Antwort ausgewählt ────────────────────────────────────────────────────────
+func _on_answer_pressed(index: int):
+	var answers: Array = current_question.get(\"answers\", [])
+	if index >= answers.size():
+		return
+
+	var chosen  = answers[index]
+	var correct = chosen.get(\"correct\", false)
+
+	for btn in answer_buttons:
+		if btn != null:
+			btn.disabled = true
+
+	if feedback_label != null:
+		feedback_label.visible = true
+		if correct:
+			feedback_label.text = \"✔ Richtig! +\" + str(current_question.get(\"points\", 1)) + \" Punkt(e)\"
+		else:
+			var correct_text = \"\"
+			for a in answers:
+				if a.get(\"correct\", false):
+					correct_text = a.get(\"label\", \"\") + \") \" + a.get(\"text\", \"\")
+			feedback_label.text = \"✘ Falsch! Richtig wäre: \" + correct_text
+
+	if correct:
+		_award_points(current_question.get(\"points\", 1))
+
+	await get_tree().create_timer(2.5).timeout
+	_close_quiz()
+
+# ── Quiz schließen ────────────────────────────────────────────────────────────
+func _close_quiz():
+	if quiz_panel != null:
+		quiz_panel.visible = false
+	quiz_active = false
+
+# ── Punkte vergeben ───────────────────────────────────────────────────────────
+func _award_points(amount: int):
+	var players = get_tree().get_nodes_in_group(\"Player\")
+	if players.is_empty():
+		return
+	var player = players[0]
+	if player.has_method(\"add_points\"):
+		player.add_points(amount)
+
+# ── Eingabe ───────────────────────────────────────────────────────────────────
+func _process(_delta):
+	if not player_near:
+		return
+
+	if quiz_active and Input.is_action_just_pressed(\"ui_cancel\"):
+		_close_quiz()
+		return
+
+	if Input.is_action_just_pressed(\"interaction_next_sentence\"):
+		if quiz_active:
+			return
+
+		if theme in ROOM_CATEGORY_MAP:
+			_start_quiz()
+		else:
+			_setup_greeting_dialog()
+			if dialog_index < dialog.size():
+				bubble.visible    = true
+				bubble_label.text = dialog[dialog_index]
+				dialog_index     += 1
+			else:
+				bubble.visible = false
+
+# ── Begrüßungsdialog ──────────────────────────────────────────────────────────
+func _setup_greeting_dialog():
 	match theme:
 		\"start\":
 			dialog = [
-				\"Welcome to startingroom.\",
-				\"blablabalba\",
-				\"asdasdasdasdsa\",
-				\"fuuuuuuuuuuuuu\"
+				\"Willkommen im Startraum!\",
+				\"Hier lernst du die Grundlagen.\",
+				\"Sammle 10 Punkte indem du Fragen beantwortest!\",
+				\"Rechts von mir sind SQL-Fragen\",
+				\"Oben ist Wirtschaft\",
+				\"Unten ist UML\",
+				\"Links ist Pseudocode\",
+				\"Wenn du alle Punkte hast\",
+				\"Dann geh in die Tür links von mir\"
 			]
-			
-		\"Room1\":
-			dialog = [
-				\"Welcome to room 1\"
-			]
-		
-		\"Room2\":
-			dialog = [
-				\"Welcome to room 2\"
-			]
-			
-		\"Room3\":
-			dialog = [
-				\"Welcome to room 3\"
-			]
-			
-		\"Room4\":
-			dialog = [
-				\"Welcome to room 4\"
-			]
+		\"Room1\": dialog = [\"Drücke E für eine Wirtschafts-Frage!\"]
+		\"Room2\": dialog = [\"Drücke E für eine Pseudocode-Frage!\"]
+		\"Room3\": dialog = [\"Drücke E für eine SQL-Frage!\"]
+		\"Room4\": dialog = [\"Drücke E für eine UML-Frage!\"]
 
+# ── Kollision ─────────────────────────────────────────────────────────────────
 func _on_body_entered(body):
-	if body.is_in_group(\"Player\"):  # Spieler muss in Gruppe \"player\" sein
-		player_near = true
+	if body.is_in_group(\"Player\"):
+		player_near  = true
 		can_interact = true
 		dialog_index = 0
-		bubble.visible = true
-		bubble_label.text = dialog[dialog_index]
+		_setup_greeting_dialog()
+		bubble.visible    = true
+		bubble_label.text = dialog[0]
 
 func _on_body_exited(body):
 	if body.is_in_group(\"Player\"):
-		player_near = false
-		bubble.visible = false
+		player_near  = false
 		can_interact = false
+		bubble.visible = false
+		if quiz_active:
+			_close_quiz()
 "
 
 [sub_resource type="Animation" id="Animation_wcsue"]
@@ -138,7 +305,6 @@ corner_radius_bottom_right = 12
 corner_radius_bottom_left = 12
 
 [node name="QuizMaster" type="Node2D" unique_id=590352954]
-position = Vector2(1052, 517)
 script = SubResource("GDScript_6vsac")
 
 [node name="Visual" type="Node2D" parent="." unique_id=1610779047]
@@ -185,3 +351,47 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_n5x2g")
 horizontal_alignment = 1
 autowrap_mode = 3
+
+[node name="QuizPanel" type="Control" parent="." unique_id=1834240204]
+z_index = 10
+layout_mode = 3
+anchors_preset = 0
+offset_left = -191.0
+offset_top = -25.0
+offset_right = -151.0
+offset_bottom = 15.0
+
+[node name="VBox" type="VBoxContainer" parent="QuizPanel" unique_id=1295185894]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -12.05
+anchor_top = -5.5750003
+anchor_right = 20.050001
+anchor_bottom = 7.6250005
+offset_left = 454.00003
+offset_top = 133.0
+offset_right = 453.99994
+offset_bottom = 132.99997
+scale = Vector2(0.33632657, 0.43265274)
+
+[node name="QuestionLabel" type="Label" parent="QuizPanel/VBox" unique_id=232984800]
+layout_mode = 2
+
+[node name="BtnA" type="Button" parent="QuizPanel/VBox" unique_id=20801376]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="BtnB" type="Button" parent="QuizPanel/VBox" unique_id=1947063810]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="BtnC" type="Button" parent="QuizPanel/VBox" unique_id=591139328]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="BtnD" type="Button" parent="QuizPanel/VBox" unique_id=1398947598]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Feedbacklabel" type="Label" parent="QuizPanel/VBox" unique_id=1269470610]
+layout_mode = 2
