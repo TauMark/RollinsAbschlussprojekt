@@ -1,7 +1,7 @@
-[gd_scene format=3 uid="uid://cw8bg584lnoam"]
+[gd_scene format=3 uid="uid://bh5tlsadcwcbx"]
 
 [ext_resource type="FontFile" uid="uid://2ox1h183a2ww" path="res://Assets/Fonts/Qaroxe.ttf" id="1_676y5"]
-[ext_resource type="Script" uid="uid://csx2l3yyjou7" path="res://scripts/punkteHUD.gd" id="1_h2q6i"]
+[ext_resource type="Script" path="res://scripts/punkteHUD.gd" id="1_h2q6i"]
 [ext_resource type="Texture2D" uid="uid://gcc3tgh2cu01" path="res://Assets/Collectible/GelberScheinCollectible.png" id="3_2chrr"]
 
 [node name="PunkteHUD" type="Control" unique_id=2141144]

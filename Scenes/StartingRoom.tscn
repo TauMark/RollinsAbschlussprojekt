@@ -6,7 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://cyv7ff17rio5l" path="res://Scenes/Rooms/Level1_3.tscn" id="3_84d45"]
 [ext_resource type="PackedScene" uid="uid://cy0jwiw0h31fb" path="res://Scenes/point.tscn" id="3_ok5ey"]
 [ext_resource type="PackedScene" uid="uid://b6ai4f0464krq" path="res://Scenes/Rooms/Level1_2.tscn" id="4_6n3lv"]
-[ext_resource type="PackedScene" uid="uid://cs143sj823m0m" path="res://Scenes/QuizMaster.tscn" id="9_wyx0u"]
+[ext_resource type="Texture2D" uid="uid://cpwclcs8dok8v" path="res://Assets/Collectible/red-arrow-2718071_1280.webp" id="9_wyx0u"]
+[ext_resource type="FontFile" uid="uid://2ox1h183a2ww" path="res://Assets/Fonts/Qaroxe.ttf" id="10_qidaq"]
+[ext_resource type="PackedScene" uid="uid://cs143sj823m0m" path="res://Scenes/QuizMaster.tscn" id="11_ib551"]
 [ext_resource type="PackedScene" uid="uid://dt2nqngfilqwm" path="res://Scenes/Rooms/Level1_1.tscn" id="14_hap66"]
 [ext_resource type="PackedScene" uid="uid://beln3cmjaq1vk" path="res://Scenes/Rooms/Level1_4.tscn" id="15_7hltm"]
 
@@ -393,8 +395,8 @@ position = Vector2(870, 414)
 [node name="Point10" parent="Map" unique_id=1303452826 instance=ExtResource("3_ok5ey")]
 position = Vector2(912, 401)
 
-[node name="Map" parent="Map" unique_id=1490905603 instance=ExtResource("4_6n3lv")]
-position = Vector2(-1918, 0)
+[node name="Map5" parent="." unique_id=1490905603 instance=ExtResource("4_6n3lv")]
+position = Vector2(-1920, 0)
 
 [node name="Map2" parent="." unique_id=182346502 instance=ExtResource("14_hap66")]
 position = Vector2(0, -1152)
@@ -405,11 +407,53 @@ position = Vector2(1920, 0)
 [node name="Map4" parent="." unique_id=82060172 instance=ExtResource("15_7hltm")]
 position = Vector2(0, 1152)
 
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1670280337]
+position = Vector2(1164.0001, 574)
+scale = Vector2(0.124798104, 0.14581689)
+texture = ExtResource("9_wyx0u")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=892488557]
+position = Vector2(1092, 469)
+rotation = -0.798803
+scale = Vector2(0.11389343, 0.09780191)
+skew = 0.15377176
+texture = ExtResource("9_wyx0u")
+
+[node name="Sprite2D3" type="Sprite2D" parent="." unique_id=1304951715]
+position = Vector2(830, 558)
+rotation = -2.3845024
+scale = Vector2(0.08109298, 0.08255868)
+skew = -0.10459137
+texture = ExtResource("9_wyx0u")
+
+[node name="Sprite2D4" type="Sprite2D" parent="." unique_id=280913590]
+position = Vector2(881, 635)
+rotation = 2.0853877
+scale = Vector2(0.07096142, 0.05701579)
+skew = 0.0953213
+texture = ExtResource("9_wyx0u")
+
+[node name="Sprite2D5" type="Sprite2D" parent="." unique_id=1137832776]
+position = Vector2(1022.00006, 628)
+rotation = 0.4301478
+scale = Vector2(0.047787257, 0.05100218)
+skew = -0.029122591
+texture = ExtResource("9_wyx0u")
+
+[node name="Label" type="Label" parent="." unique_id=640819702]
+offset_left = 864.0
+offset_top = 578.0
+offset_right = 1017.0
+offset_bottom = 601.0
+scale = Vector2(1.3086001, 1.4223287)
+theme_override_fonts/font = ExtResource("10_qidaq")
+text = "ENDE HIER       10"
+
 [node name="CharacterBody2D" parent="." unique_id=1813514298 instance=ExtResource("2_q12u6")]
 position = Vector2(948, 498)
 
-[node name="QuizMaster" parent="." unique_id=590352954 instance=ExtResource("9_wyx0u")]
-position = Vector2(1180, 579)
+[node name="QuizMaster" parent="." unique_id=590352954 instance=ExtResource("11_ib551")]
+position = Vector2(1202, 520)
 theme = "start"
 
 [connection signal="body_entered" from="Map/Area2D" to="." method="_on_dour_end_body_entered"]

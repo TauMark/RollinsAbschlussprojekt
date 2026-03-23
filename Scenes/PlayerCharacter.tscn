@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://jgi2xjcp7uka" path="res://Assets/MainFig-1.png.png" id="5_cl0yw"]
 [ext_resource type="PackedScene" uid="uid://c7w2caq00o6c5" path="res://Scenes/pause_menu.tscn" id="6_vjvuw"]
 [ext_resource type="PackedScene" uid="uid://cy0jwiw0h31fb" path="res://Scenes/point.tscn" id="7_uvrlg"]
-[ext_resource type="PackedScene" uid="uid://cw8bg584lnoam" path="res://Scenes/punkteHUD.tscn" id="8_fkgr2"]
+[ext_resource type="PackedScene" uid="uid://bh5tlsadcwcbx" path="res://Scenes/punkteHUD.tscn" id="8_fkgr2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2getf"]
 atlas = ExtResource("2_2getf")
