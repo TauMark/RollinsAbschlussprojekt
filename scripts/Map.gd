@@ -43,9 +43,10 @@ func get_points_from_file() -> int:
 
 
 func _on_dour_end_body_entered(body: Node2D) -> void:
-	var points = get_points_from_file()
-	
-	if points > 9:
-		get_tree().change_scene_to_file("res://Scenes/EndScreen.tscn")
-	else:
-		print("Mindestens 10 Punkte benötigt!")
+	if(body.is_in_group('Player')):
+		var points = get_points_from_file()
+		
+		if points > 9:
+			get_tree().change_scene_to_file("res://Scenes/EndScreen.tscn")
+		else:
+			print("Mindestens 10 Punkte benötigt!")
