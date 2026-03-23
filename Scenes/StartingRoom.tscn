@@ -453,7 +453,7 @@ text = "ENDE HIER       10"
 position = Vector2(948, 498)
 
 [node name="QuizMaster" parent="." unique_id=590352954 instance=ExtResource("11_ib551")]
-position = Vector2(1202, 520)
+position = Vector2(1205, 535)
 theme = "start"
 
 [connection signal="body_entered" from="Map/Area2D" to="." method="_on_dour_end_body_entered"]
