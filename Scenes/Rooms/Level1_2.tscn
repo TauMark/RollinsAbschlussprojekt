@@ -368,13 +368,3 @@ script = ExtResource("2_rx2yh")
 [node name="Deco" type="TileMapLayer" parent="." unique_id=759391610]
 tile_map_data = PackedByteArray("AAAKABoAAAAAAAAAAAALABoAAAAAAAAAAAALABkAAAAAAAAAAAAMABkAAAAAAAAAAAAMABoAAAAAAAAAAAANABoAAAAAAAAAAAAbABMAAAAAAAAAAAAcABMAAAAAAAAAAAAcABIAAAAAAAAAAAArAAYAAAAAAAAAAAAsAAYAAAAAAAAAAAAtAAYAAAAAAAAAAAA1ABYAAAAAAAAAAAA0ABYAAAAAAAAAAAA0ABcAAAAAAAAAAAApABwAAAAAAAAAAAApABoAAAAAAAAAAAApABsAAAAAAAAAAAAaAAUAAQAAAAAAAAAhAAUAAQAAAAAAAAAPABQAAQAAAAAAAAAsABcAAQAAAAAAAAAfAA8AAQAAAAAAAAAcAA8AAQAAAAAAAAAaAB4AAQAAAAAAAAAhAB4AAQAAAAAAAAA2AA4AAQAAAAAAAAAFAA4AAQAAAAAAAAA=")
 tile_set = SubResource("TileSet_5awjf")
-
-<<<<<<< HEAD
-[connection signal="body_entered" from="Map/DoorOne" to="Map" method="_on_body_entered_left"]
-[connection signal="body_entered" from="Map/DoorTwo" to="Map" method="_on_body_entered_up"]
-[connection signal="body_entered" from="Map/DoorThree" to="Map" method="_on_door_body_entered_right"]
-[connection signal="body_entered" from="Map/DoorFour" to="Map" method="_on_body_entered_down"]
-=======
-[node name="QuizMaster" parent="." unique_id=590352954 instance=ExtResource("5_rx2yh")]
-position = Vector2(1227, 546)
->>>>>>> 8d5db96359664beb8cac7a35a041818dcce6705c
