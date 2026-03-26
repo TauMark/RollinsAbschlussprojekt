@@ -1,7 +1,7 @@
 extends Node2D
 
 var dir = "res://Scenes/Rooms/"
-var savedir = "res://data/"
+var savedir = "user://"
 
 	
 
@@ -25,7 +25,7 @@ func _on_body_entered_left(body: Node2D) -> void:
 		body.position -= Vector2(250,0)
 
 func get_points_from_file() -> int:
-	var path = "res://data/playerdata.json"
+	var path = "user://playerdata.json"
 	
 	if not FileAccess.file_exists(path):
 		return 0

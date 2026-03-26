@@ -3,7 +3,7 @@ extends CharacterBody2D
 @export var speed = 400
 @onready var sprite: AnimatedSprite2D = $Sprite
 var dir     = "res://Scenes/Rooms/"
-var savedir = "res://data/"
+var savedir = "user://"
 var point_counter = 0
  
 # ── Input & Bewegung ──────────────────────────────────────────────────────────
@@ -17,9 +17,14 @@ func _ready() -> void:
 		var file_r = FileAccess.open(savedir + "playerdata.json", FileAccess.READ)
 		var data = JSON.parse_string(file_r.get_as_text())
 		file_r.close()
+
 		if typeof(data) == TYPE_DICTIONARY:
-			position = Vector2(data.get("x", 0.0), data.get("y", 0.0))
+			position = Vector2(data.get("x", 950.0), data.get("y", 500.0))
 			point_counter = int(data.get("point_counter", 0))
+	else:
+		# Default values for NEW GAME
+		position = Vector2(950, 500)
+		point_counter = 0
  
 func _physics_process(_delta):
 	move_and_slide()
@@ -43,6 +48,7 @@ func handle_animation(direction):
 ## Fügt `amount` Punkte hinzu und speichert sofort.
 func add_points(amount: int) -> void:
 	point_counter += amount
+	DirAccess.make_dir_recursive_absolute(savedir)
 	_save_points()
 	print("Punkte: ", point_counter)
  
@@ -64,6 +70,8 @@ func _save_points() -> void:
 		if typeof(parsed) == TYPE_DICTIONARY:
 			data = parsed
  
+	data["x"] = position.x
+	data["y"] = position.y
 	data["point_counter"] = point_counter
 	var file_w = FileAccess.open(savedir + "playerdata.json", FileAccess.WRITE)
 	file_w.store_string(JSON.stringify(data, "\t"))

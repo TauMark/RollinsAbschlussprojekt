@@ -1,6 +1,6 @@
 extends Control
 
-var savedir = "res://data/"
+var savedir = "user://"
 var player = ""
 
 func _ready() -> void:

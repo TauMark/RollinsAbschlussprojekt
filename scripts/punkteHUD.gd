@@ -1,7 +1,7 @@
 extends Control
 
 @onready var label = $Label
-var savedir = "res://data/"
+var savedir = "user://"
 
 func _process(delta):
 	label.text = "Punkte: " + str(get_points())

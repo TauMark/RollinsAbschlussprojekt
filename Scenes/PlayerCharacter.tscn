@@ -188,7 +188,6 @@ scale = Vector2(0.84374857, 0.84374976)
 texture = ExtResource("5_cl0yw")
 
 [node name="PauseMenu2" type="CanvasLayer" parent="." unique_id=93273042]
-visible = false
 
 [node name="PauseMenu" parent="PauseMenu2" unique_id=315113575 instance=ExtResource("6_vjvuw")]
 metadata/_edit_use_anchors_ = true

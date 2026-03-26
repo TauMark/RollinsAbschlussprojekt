@@ -170,6 +170,7 @@ func _on_answer_pressed(index: int):
 	if correct:
 		_award_points(current_question.get(\"points\", 1))
 		play_confetti()
+		print(\"+1 point\")
 
 	await get_tree().create_timer(2.5).timeout
 	_close_quiz()

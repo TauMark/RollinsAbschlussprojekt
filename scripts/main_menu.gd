@@ -1,6 +1,6 @@
 extends Control
 
-var savedir = "res://data/"
+var savedir = "user://"
 
 @export var player = ""
 @export var startScene = ""
@@ -17,8 +17,8 @@ func _process(delta: float) -> void:
 func _on_new_game_pressed() -> void:
 	$FadeOut.play("MainMenuFade")
 	await $FadeOut.animation_finished
-	DirAccess.remove_absolute(savedir+"mapdata.json")
-	DirAccess.remove_absolute(savedir+"playerdata.json")
+	if FileAccess.file_exists(savedir + "playerdata.json"):
+		DirAccess.remove_absolute(savedir + "playerdata.json")
 	get_tree().change_scene_to_file(startScene)
 
 
